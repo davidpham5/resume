@@ -96,7 +96,9 @@ container .jumbotron, .container-fluid .jumbotron {
     padding-right: 40px;
     padding-left: 40px;
 }
-
+.header {
+    margin-bottom: 30px;
+  }
 /* Supporting marketing content */
 .marketing {
   margin: 40px 0;
@@ -104,8 +106,8 @@ container .jumbotron, .container-fluid .jumbotron {
 .marketing p + h4 {
   margin-top: 28px;
 }
-.marketing.header {
-	margin-bottom: 20px;
+.marketing .header {
+	margin-bottom: 15px;
 }
 .marketing ol,
 .marketing ul {
@@ -120,6 +122,10 @@ container .jumbotron, .container-fluid .jumbotron {
 .exp {
 	margin-bottom: 15px;
 }
+.sidebar .sidebar-section,
+.main .main-section {
+	margin-bottom: 40px;
+}
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
 
@@ -131,9 +137,7 @@ container .jumbotron, .container-fluid .jumbotron {
     padding-right: 0;
   }
   /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
-  }
+
   /* Remove the bottom border on the jumbotron for visual effect */
   .jumbotron {
     border-bottom: 0;

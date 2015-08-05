@@ -10,22 +10,40 @@
 	</div>
 </div>
 <div class="row marketing">
- 	<div class="col-md-8" >
-	 	 <h1 class="header">{{experiences.header}}</h1>
-	 	 <div class="exp" ng-repeat="exp in experiences.experiences">
-		 	<ul class="list-inline">
-			 	<li><h3>{{exp.company}}</h3></li>
-			 	<li class="text-muted">{{exp.department}}</li>
-		 	</ul>
-	 	 	<ul class="list-inline">
-		 	 	<li>
-		 	 		<p class="strong">{{exp.title}}</p>
-		 	 	</li>
-		 	 	<li>
-		 	 		<span class="text-muted">{{exp.start}} - {{exp.end}}</span>
-		 	 	</li>
-		 	 	<li><span class="text-muted">{{exp.location.city}}</span></li>
-	 	 	</ul>
-		 </div>
+ 	<div class="col-md-8 main">
+	 	 <div class="main-section" ng-include="'/views/work-experience.html'"></div>
+	 	 <div class="main-section">
+		 	 <h1 class="header">Organizations</h1>
+		 	 <div class="exp">
+		 		<ul>
+					<li ng-repeat="org in exp.org">{{org}}</li>
+				</ul>
+		 	</div>
+	 	 </div>
+ 	</div>
+ 	<div class="col-md-4 sidebar">
+	 	<div class="sidebar-section">
+		 	<h1 class="header">
+		 		{{exp.education.header}}
+			</h1>
+		 	<div class="exp">
+		 		<ul class="list-inline">
+					<li><h3>{{exp.education.college}}</h3></li>
+					<li class="strong">{{exp.education.major}}</li>
+					<li class="text-muted">{{exp.education.degree}}</li>
+					<li class="text-muted">{{exp.education.gradDate}}</li>
+				</ul>
+		 	</div>
+	 	</div>
+	 	<div class="sidebar-section">
+		 	<h1 class="header">
+			 	Skills
+			 </h1>
+		 	<div class="exp">
+		 		<ul>
+					<li ng-repeat="skill in exp.skills">{{skill}}</li>
+				</ul>
+		 	</div>
+		</div>
  	</div>
 </div>

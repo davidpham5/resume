@@ -9,6 +9,6 @@
  */
 angular.module('pham6App')
   .controller('MainCtrl', function ($scope, workExp) {
-    $scope.experiences = workExp;
-    console.log(workExp);	
+    $scope.exp = workExp;
+    console.log($scope.experiences);	
   });
