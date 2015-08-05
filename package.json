@@ -14,7 +14,10 @@
     "grunt-contrib-htmlmin": "^0.4.0",
     "grunt-contrib-imagemin": "^0.9.2",
     "grunt-contrib-jshint": "^0.11.0",
+<<<<<<< HEAD
     "grunt-contrib-sass": "^0.9.2",
+=======
+>>>>>>> first commit for github pages
     "grunt-contrib-uglify": "^0.7.0",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-filerev": "^2.1.2",
@@ -34,4 +37,12 @@
   "scripts": {
     "test": "grunt test"
   }
+<<<<<<< HEAD
 }
+=======
+<<<<<<< HEAD
+}
+=======
+}
+>>>>>>> first commit for github pages
+>>>>>>> first commit for github pages
