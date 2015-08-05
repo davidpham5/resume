@@ -24,8 +24,12 @@ angular
 	
 =======
   .config(function ($locationProvider, $routeProvider) {
+<<<<<<< HEAD
 	$locationProvider.html5Mode(true);
 >>>>>>> add html5 locationprovider to app.js and base element in head
+=======
+	
+>>>>>>> experimenting with bower path
     $routeProvider
       .when('/', {
 //	  	templateUrl: 'views/main.html',
