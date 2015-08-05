@@ -19,8 +19,13 @@ angular
     'ngSanitize',
     'ngTouch'
   ])
+<<<<<<< HEAD
   .config(function ($routeProvider) {
 	
+=======
+  .config(function ($locationProvider, $routeProvider) {
+	$locationProvider.html5Mode(true);
+>>>>>>> add html5 locationprovider to app.js and base element in head
     $routeProvider
       .when('/', {
 //	  	templateUrl: 'views/main.html',
