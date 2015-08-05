@@ -11,11 +11,15 @@ body {
 }
 h1, h2, h3, h4 {
 	 font-family: 'Merriweather', serif;
+	 margin-top: 0;
+}
+.strong, b {
+	font-weight: 700;
 }
 .avatar {
 	z-index: 3;
     position: relative;
-    top: -75px;
+    top: 0;
 }
 .avatar .profile-pic.round {
 	display: block;
@@ -100,17 +104,24 @@ container .jumbotron, .container-fluid .jumbotron {
 .marketing p + h4 {
   margin-top: 28px;
 }
-
+.marketing.header {
+	margin-bottom: 20px;
+}
+.marketing ol,
+.marketing ul {
+	margin-bottom: 0px;	
+}
 .navbar-default {
 	background-color: #fff;
 	border: none;
 	margin-bottom: 0;
 }
+
+.exp {
+	margin-bottom: 15px;
+}
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
-  .container {
-    max-width: 730px;
-  }
 
   /* Remove the padding we set earlier */
   .header,

@@ -8,10 +8,7 @@
  * Controller of the pham6App
  */
 angular.module('pham6App')
-  .controller('MainCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('MainCtrl', function ($scope, workExp) {
+    $scope.experiences = workExp;
+    console.log(workExp);	
   });
