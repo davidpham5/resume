@@ -10,7 +10,7 @@
 angular.module('pham6App')
   .service('ExpService', function () {
     return {
-	    header: 'Work Experience',
+	    header: 'Work Experiences',
 	    experiences: [
 		    {
 			    company: 'Symplicity',
