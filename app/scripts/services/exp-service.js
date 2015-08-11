@@ -8,10 +8,10 @@
  * Service in the pham6App.
  */
 angular.module('pham6App')
-  .service('workExp', function () {
+  .service('ExpService', function () {
     return {
 	    header: 'Work Experience',
-	    exp: [
+	    experiences: [
 		    {
 			    company: 'Symplicity',
 			    start: 'November 2012',
@@ -72,7 +72,8 @@ angular.module('pham6App')
 		    college: 'University of Missouri - Columbia',
 		    degree: 'BA',
 		    major: 'History',
-		    gradDate: 'May 2006'
+		    gradDate: 'May 2006',
+		    funny: 'I trained as a historian with a focus on economics, at the University of Missouri. My training led me to a critical analysis on the study of change and the study of human groups. Coupled with my work experience, I offer some funnies and ironic twists.'
 	    },
 	    org: [
 		    'Career Development Program Graduate of the Library of Congress (2008)',
@@ -89,7 +90,8 @@ angular.module('pham6App')
 		    'LESS',
 		    'Bower',
 		    'Grunt',
-		    'Yoeman'
+		    'Yoeman',
+		    'Github'
 		    
 	    ]
     };

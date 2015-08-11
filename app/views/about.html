@@ -1,1 +1,28 @@
-<p>This is the about view.</p>
+<div class="row marketing">
+	<div class="col-md-8">
+		<h1 class="header">Summary</h1>
+		<p ng-repeat="summary in summaries">{{ summary.text }}</p>
+		
+		<br />
+		<h1 class="header">Projects</h1>
+		<div class="exp" ng-repeat="work in exp.experiences">
+			<ul class="list-inline">
+				<li>
+					<h3>
+						{{work.company}}
+					</h3>
+				</li>
+				<li class="text-muted">{{work.department}}</li>
+			</ul>
+			<ul class="list-inline">
+				<li>
+					<p class="strong">{{work.title}}</p>
+				</li>
+				<li>
+					<span class="text-muted">{{work.start}} - {{work.end}}</span>
+				</li>
+				<li><span class="text-muted">{{work.location.city}}</span></li>
+			</ul>
+		</div>
+	</div>
+</div>

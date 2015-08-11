@@ -8,7 +8,6 @@
  * Controller of the pham6App
  */
 angular.module('pham6App')
-  .controller('MainCtrl', function ($scope, workExp) {
-    $scope.exp = workExp;
-    console.log($scope.experiences);	
+  .controller('MainCtrl', function ($scope, ExpService) {
+    $scope.exp = ExpService;
   });
