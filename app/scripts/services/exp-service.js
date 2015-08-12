@@ -10,7 +10,11 @@
 angular.module('pham6App')
   .service('ExpService', function () {
     return {
+<<<<<<< HEAD
 	    header: 'Work Experience',
+=======
+	    header: 'Work Experiences',
+>>>>>>> 2dbc764719764edcddd310b844e38c9ec654d6d3
 	    experiences: [
 		    {
 			    company: 'Symplicity',
@@ -26,7 +30,11 @@ angular.module('pham6App')
 			    company: 'Congressional Research Service',
 			    department: 'Social Domestic Policy',
 			    start: 'October 2007',
+<<<<<<< HEAD
 			    end: 'November 2012',
+=======
+			    end: 'Ocotber 2012',
+>>>>>>> 2dbc764719764edcddd310b844e38c9ec654d6d3
 			    title: 'Administrative Assistant',
 			    location: {
 				    city: 'Washington DC',
@@ -73,7 +81,11 @@ angular.module('pham6App')
 		    degree: 'BA',
 		    major: 'History',
 		    gradDate: 'May 2006',
+<<<<<<< HEAD
 		    funny: 'In all my years schooling, I learned how to learn. I taught myself HTML, CSS, and Javascript. My passion for learning new things is what drives my education.'
+=======
+		    funny: 'I trained as a historian with a focus on economics, at the University of Missouri. My training led me to a critical analysis on the study of change and the study of human groups. Coupled with my work experience, I offer some funnies and ironic twists.'
+>>>>>>> 2dbc764719764edcddd310b844e38c9ec654d6d3
 	    },
 	    org: [
 		    'Career Development Program Graduate of the Library of Congress (2008)',
@@ -83,16 +95,25 @@ angular.module('pham6App')
 	    ],
 	    skills: [
 		    'AngularJS',
+<<<<<<< HEAD
 		    'Command Line',
+=======
+>>>>>>> 2dbc764719764edcddd310b844e38c9ec654d6d3
 		    'Agile',
 		    'Javascript',
 		    'HTML',
 		    'CSS',
 		    'LESS',
+<<<<<<< HEAD
 		    'SASS',
 		    'Bower',
 		    'Grunt',
 		    'Yeoman',
+=======
+		    'Bower',
+		    'Grunt',
+		    'Yoeman',
+>>>>>>> 2dbc764719764edcddd310b844e38c9ec654d6d3
 		    'Github'
 		    
 	    ]
