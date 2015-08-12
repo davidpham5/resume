@@ -73,7 +73,7 @@ angular.module('pham6App')
 		    degree: 'BA',
 		    major: 'History',
 		    gradDate: 'May 2006',
-		    funny: 'I trained as a historian with a focus on economics, at the University of Missouri. My training led me to a critical analysis on the study of change and the study of human groups. Coupled with my work experience, I offer some funnies and ironic twists.'
+		    funny: 'In all my years schooling, I learned how to learn. I taught myself HTML, CSS, and Javascript. My passion for learning new things is what drives my education.'
 	    },
 	    org: [
 		    'Career Development Program Graduate of the Library of Congress (2008)',
@@ -83,11 +83,13 @@ angular.module('pham6App')
 	    ],
 	    skills: [
 		    'AngularJS',
+		    'Command Line',
 		    'Agile',
 		    'Javascript',
 		    'HTML',
 		    'CSS',
 		    'LESS',
+		    'SASS',
 		    'Bower',
 		    'Grunt',
 		    'Yoeman',

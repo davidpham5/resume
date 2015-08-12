@@ -1,25 +1,24 @@
 <div class="jumbotron bg-white">
-  <h1>David Chico Pham</h1>
-  <p class="lead">
-    Front-End Developer. I build useful and beautiful interfaces.
-  </p>
-  <div class="avatar">
+	<h1>David Chico Pham</h1>
+	<p class="lead">
+		Front-End Developer. I build useful and beautiful interfaces.
+	</p>
+  	<div class="avatar">
 		<div class="profile-pic round">
 			<img src="/images/david1.png" alt="" />
 		</div>
 	</div>
+	<br />
+	<ul class="list-inline text-center">
+		<li><a href="https://twitter.com/davidpham5" target="_blank"><h3><span class="fa fa-twitter fg-lg">&nbsp;</span></a><h3></li>	
+		<li><a href="https://github.com/davidpham5" target="_blank"><h3><span class="fa fa-github fg-lg">&nbsp;</span></a><h3></li>
+	</ul>
 </div>
+
 <div class="row marketing">
  	<div class="col-md-8 main">
-	 	 <div class="main-section" ng-include="'/views/experiences.html'"></div>
-	 	 <div class="main-section">
-		 	 <h1 class="header">Organizations</h1>
-		 	 <div class="exp">
-		 		<ul>
-					<li ng-repeat="org in exp.org">{{org}}</li>
-				</ul>
-		 	</div>
-	 	 </div>
+	 	<div class="main-section" ng-include="'/views/experiences.html'"></div>
+	 	<div class="main-section" ng-include="'/views/vis-comm.html'"></div>
  	</div>
  	<div class="col-md-4 sidebar">
 	 	<div class="sidebar-section">
@@ -45,6 +44,7 @@
 					<li ng-repeat="skill in exp.skills">{{skill}}</li>
 				</ul>
 		 	</div>
+		 	<div ng-include="'/views/org.html'"></div>
 		</div>
  	</div>
 </div>
