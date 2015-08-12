@@ -64,6 +64,13 @@ module.exports = function (grunt) {
           '.tmp/styles/{,*/}*.css',
           '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
+<<<<<<< HEAD
+      },
+      sass: {
+	    files: ['<%= yeoman.app %>/styles/scss/*.scss'],
+	    tasks: ['sass']
+=======
+>>>>>>> 2dbc764719764edcddd310b844e38c9ec654d6d3
       }
     },
 
@@ -398,6 +405,19 @@ module.exports = function (grunt) {
         'svgmin'
       ]
     },
+<<<<<<< HEAD
+	sass: {
+		dist: {	// Target
+		   options: {	// Target options
+			 style: 'expanded'
+		   },
+		   files: {	// Dictionary of files
+			 'app/styles/main.css': 'app/styles/scss/main.scss'	// 'destination': 'source'
+		   }
+		}
+	},
+=======
+>>>>>>> 2dbc764719764edcddd310b844e38c9ec654d6d3
 
     // Test settings
     karma: {
@@ -408,7 +428,10 @@ module.exports = function (grunt) {
     }
   });
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> 2dbc764719764edcddd310b844e38c9ec654d6d3
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
     if (target === 'dist') {
       return grunt.task.run(['build', 'connect:dist:keepalive']);
@@ -420,6 +443,10 @@ module.exports = function (grunt) {
       'concurrent:server',
       'autoprefixer:server',
       'connect:livereload',
+<<<<<<< HEAD
+      'sass',
+=======
+>>>>>>> 2dbc764719764edcddd310b844e38c9ec654d6d3
       'watch'
     ]);
   });
@@ -459,6 +486,11 @@ module.exports = function (grunt) {
   grunt.registerTask('default', [
     'newer:jshint',
     'test',
+<<<<<<< HEAD
+    'build',
+    'sass',
+=======
+>>>>>>> 2dbc764719764edcddd310b844e38c9ec654d6d3
     'build'
   ]);
 };
