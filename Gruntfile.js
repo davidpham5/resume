@@ -64,6 +64,10 @@ module.exports = function (grunt) {
           '.tmp/styles/{,*/}*.css',
           '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
+      },
+      sass: {
+	    files: ['<%= yeoman.app %>/styles/scss/*.scss'],
+	    tasks: ['sass']
       }
     },
 
@@ -398,7 +402,16 @@ module.exports = function (grunt) {
         'svgmin'
       ]
     },
-
+	sass: {
+		dist: {	// Target
+		   options: {	// Target options
+			 style: 'expanded'
+		   },
+		   files: {	// Dictionary of files
+			 'app/styles/main.css': 'app/styles/scss/main.scss'	// 'destination': 'source'
+		   }
+		}
+	},
     // Test settings
     karma: {
       unit: {
@@ -407,7 +420,8 @@ module.exports = function (grunt) {
       }
     }
   });
-
+  
+grunt.loadNpmTasks('grunt-contrib-sass');
 
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
     if (target === 'dist') {
@@ -420,6 +434,7 @@ module.exports = function (grunt) {
       'concurrent:server',
       'autoprefixer:server',
       'connect:livereload',
+      'sass',
       'watch'
     ]);
   });
@@ -459,6 +474,7 @@ module.exports = function (grunt) {
   grunt.registerTask('default', [
     'newer:jshint',
     'test',
-    'build'
+    'build',
+    'sass'
   ]);
 };
