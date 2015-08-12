@@ -26,7 +26,7 @@ angular.module('pham6App')
 			    company: 'Congressional Research Service',
 			    department: 'Social Domestic Policy',
 			    start: 'October 2007',
-			    end: 'Ocotber 2012',
+			    end: 'November 2012',
 			    title: 'Administrative Assistant',
 			    location: {
 				    city: 'Washington DC',
@@ -92,7 +92,7 @@ angular.module('pham6App')
 		    'SASS',
 		    'Bower',
 		    'Grunt',
-		    'Yoeman',
+		    'Yeoman',
 		    'Github'
 		    
 	    ]
