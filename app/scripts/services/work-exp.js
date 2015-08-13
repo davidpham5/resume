@@ -92,5 +92,5 @@ angular.module('pham6App')
 		    'Yoeman'
 		    
 	    ]
-    }
+    };
   });
