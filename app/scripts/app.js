@@ -8,8 +8,7 @@
  *
  * Main module of the application.
  */
-angular
-  .module('pham6App', [
+angular.module('pham6App', [
     'ngAnimate',
     'ngAria',
     'ngCookies',
@@ -36,3 +35,10 @@ angular
         redirectTo: '/'
       });
   });
+angular.module('pham6App')
+	.controller('AppCtrl', function($scope) {
+		$scope.theme = function() {
+			$scope.light = !$scope.light;
+		};
+			
+	});

@@ -13,8 +13,16 @@
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
+<!--
+    <script type="text/javascript" src="//platform.linkedin.com/in.js">
+    api_key:   770m1wc92n1b0b
+    onLoad:    callback
+    authorize: [true]
+    lang:      en_US
+	</script>
+-->
   </head>
-  <body ng-app="pham6App">
+  <body ng-app="pham6App" ng-class="light ? 'light' : 'dark'" ng-controller="AppCtrl">
     <!--[if lte IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -40,6 +48,13 @@
             <ul class="nav navbar-nav">
               <li class=""><a href="#/">Home</a></li>
               <li><a ng-href="#/about">About</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+	            <li>
+	            	<a role="button" class="btn btn-link" ng-click="theme()">
+		        	    <span class="fa" ng-class="light ? 'fa-toggle-on' : 'fa-toggle-off'">&nbsp;</span>
+		            </a>
+		        </li>
             </ul>
           </div>
         </div>

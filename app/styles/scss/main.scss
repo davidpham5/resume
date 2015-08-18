@@ -10,6 +10,35 @@
 body {
   padding: 0;
   font-family: 'Lato', sans-serif;
+  &.light {
+	  background-color: #fff;
+	  transition: all 0.3s ease-in-out;
+  }
+  &.dark {
+	  background-color: #000;
+	  color: #fff;
+	  transition: all 0.3s ease-in-out;
+	  .navbar-default {
+		  background-color: #000;
+		  color: #fff;
+		  transition: all 0.3s ease-in-out;
+		  a {
+			  color: $brand-success;
+			  transition: all 0.3s ease-in-out;
+		  }  
+	  }
+	  .jumbotron {
+		  background-color: #000;
+		  color: #fff;
+	  	  transition: all 0.3s ease-in-out;
+	  }
+	  a {
+		  color: $brand-success;
+	  }
+	  .text-muted {
+		  color: #d1d1d1;
+	  }
+  }
 }
 h1, h2, h3, h4 {
 	 font-family: 'Merriweather', serif;

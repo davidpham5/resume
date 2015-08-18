@@ -8,9 +8,18 @@
  * Service in the pham6App.
  */
 angular.module('pham6App')
-  .service('ExpService', function () {
+  .service('ExpService', function ($http) {
     return {
 	    header: 'Work Experience',
+
+/*
+	    linkedin: function() {
+		    $http.get('https://api.linkedin.com/v1/').then(function(response){
+			    return response
+		    });
+		    console.log(response);
+	    },
+*/
 	    experiences: [
 		    {
 			    company: 'Symplicity',
