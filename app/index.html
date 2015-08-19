@@ -13,16 +13,27 @@
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
-<!--
     <script type="text/javascript" src="//platform.linkedin.com/in.js">
-    api_key:   770m1wc92n1b0b
-    onLoad:    callback
-    authorize: [true]
-    lang:      en_US
-	</script>
--->
+	    api_key:   770m1wc92n1b0b
+	    onLoad:    onLinkedInLoad
+	    authorize: [true]
+	    lang:      en_US
+   	</script>
+   	<script charset="utf-8">
+   		function onLinkedInLoad() {
+   			IN.Event.on(IN, "auth", onLinkedInAuth);
+   		}
+   		function onLinkedInAuth() {
+   			IN.API.Profile("me").result(displayProfiles);	
+   		}
+   		function displayProfiles(profiles) {
+		     member = profiles.values[0];
+		     console.log(profiles.values);	
+		}
+   	</script>
+   	
   </head>
-  <body ng-app="pham6App" ng-class="light ? 'light' : 'dark'" ng-controller="AppCtrl">
+  <body ng-app="pham6App" ng-class="light ? 'dark' : 'light'" ng-controller="AppCtrl">
     <!--[if lte IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -60,11 +71,11 @@
         </div>
       </div>
     </div>
-
+	<script type="in/Login"></script>
     <div class="container">
     <div ng-view=""></div>
     </div>
-
+	
     <div class="footer">
       <div class="container">
         <p><span class="fa fa-heart">&nbsp;</span>Made with a lot love.</p>

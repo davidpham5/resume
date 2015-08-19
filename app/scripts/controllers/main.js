@@ -10,20 +10,25 @@
 angular.module('pham6App')
   .controller('MainCtrl', function ($scope, ExpService, $http) {
     $scope.exp = ExpService;
-   	
-    $scope.profile = function() {
-	    $http({
-		    method: 'GET',
-		    url: 'http://platform.linkedin.com/in.js/',
-		    params: {
-			    api_key: '770m1wc92n1b0b',
-			    credentialsCookie: true,
-			    dataType: 'json'
-		    }
-	    }).success(function(data){
-		    console.log(data);
-	    }).error(function(error){
-		    return 'error big time';
-	    })
-    }();
-	});
+
+   	$http.get('http://platform.linkedin.com/in.js', {
+		   	api_key: '770m1wc92n1b0b',
+		   	//onLoad: onLinkedinLoad(),
+		   	authorize: false,
+		   	lang: 'en_US'
+		   	
+   		})
+   		.success(function(data) {
+/*
+	   	$scope.onLinkedinLoad =  function() {
+   				IN.Event.on(IN, "auth", onLinkedInAuth);
+   			};
+*/
+
+	   			   		//IN.User.logout(callbackFunction, callbackScope);
+	   		//console.log(data);
+   		})
+   		.error(function(data){
+	   		console.log('erorr: ', data);
+   		});
+   	});
