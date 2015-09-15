@@ -13,25 +13,6 @@
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
-    <script type="text/javascript" src="//platform.linkedin.com/in.js">
-	    api_key:   770m1wc92n1b0b
-	    onLoad:    onLinkedInLoad
-	    authorize: [true]
-	    lang:      en_US
-   	</script>
-   	<script charset="utf-8">
-   		function onLinkedInLoad() {
-   			IN.Event.on(IN, "auth", onLinkedInAuth);
-   		}
-   		function onLinkedInAuth() {
-   			IN.API.Profile("me").result(displayProfiles);	
-   		}
-   		function displayProfiles(profiles) {
-		     member = profiles.values[0];
-		     console.log(profiles.values);	
-		}
-   	</script>
-   	
   </head>
   <body ng-app="pham6App" ng-class="light ? 'dark' : 'light'" ng-controller="AppCtrl">
     <!--[if lte IE 8]>
@@ -58,6 +39,7 @@
 
             <ul class="nav navbar-nav">
               <li class=""><a href="#/">Home</a></li>
+              <li><a ng-href="#/portfolio">Portfolio</a></li>
               <li><a ng-href="#/about">About</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -115,8 +97,11 @@
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers/main.js"></script>
     <script src="scripts/controllers/about.js"></script>
+    <script src="scripts/controllers/portfolio-controller.js"></script>
+    
     <script src="scripts/services/exp-service.js"></script>
     <script src="scripts/services/about-service.js"></script>
+     <script src="scripts/services/gallery-service.js"></script>
     <!-- endbuild -->
 </body>
 </html>

@@ -85,7 +85,7 @@ angular.module('pham6App')
 		    funny: 'In all my years schooling, I learned how to learn. I taught myself HTML, CSS, and Javascript. My passion for learning new things is what drives my education.'
 	    },
 	    org: [
-		    'Career Development Program Graduate of the Library of Congress (2008)',
+		    'Career Development Program Graduate of the Library of Congress (2008-2009)',
 			'Emergency Office Coordinator for Domestic Social Policy (2008 - 2012)',
 			'Little Lights Urban Ministries After School Tutoring Program (2007 - 2010)',
 			'Membership Outreach Officer Capitol Hill Toastmasters Club #1460  (2008 - 2012)'

@@ -9958,6 +9958,15 @@ button.close {
   content: "";
 }
 
+h1, h2, h3, h4 {
+  font-family: 'Merriweather', serif;
+  margin-top: 0;
+}
+
+.strong, b {
+  font-weight: 700;
+}
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -9997,15 +10006,6 @@ body.dark a {
 }
 body.dark .text-muted {
   color: #d1d1d1;
-}
-
-h1, h2, h3, h4 {
-  font-family: 'Merriweather', serif;
-  margin-top: 0;
-}
-
-.strong, b {
-  font-weight: 700;
 }
 
 .avatar {
