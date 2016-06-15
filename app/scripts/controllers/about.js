@@ -10,5 +10,6 @@
 angular.module('pham6App')
   .controller('AboutCtrl', function ($scope, AboutService) {
     $scope.summaries = AboutService.summary; 
-    $scope.projects = AboutService.project; 
+    $scope.projects = AboutService.projects; 
+    console.log($scope.projects);
   });
