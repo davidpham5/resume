@@ -31,6 +31,7 @@
 
   <!-- Hey There! Pleasure to see you poking around. Like you, I tend to look around to see how sites or apps are built. Take your time and look around. Let me know if you have any questions.  -->
     <meta name="description" content="">
+    <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
@@ -38,8 +39,9 @@
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="app/styles/main.css">
     <!-- endbuild -->
+    <base href="/resume/" />
   </head>
   <body ng-app="pham6App">
     <!--[if lte IE 8]>
@@ -63,8 +65,7 @@
                     <a href="http://davidpham5.github.io/portfolio/portfolio.html">Portfolio</a>
                   </li>
                   <li>
-                    <a href="http://davidpham5.github.io/resume/">Resume</a>
-                    
+                    <a href="http://davidpham5.github.io/resume/">Resume</a>    
                   </li>
                 </ul>
               </div>
@@ -75,7 +76,7 @@
     </header>
   
     <div class="container">
-      <div ng-view=""></div>
+    <div ng-view=""></div>
     </div>
 
     <div class="footer">
@@ -98,27 +99,27 @@
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-animate/angular-animate.js"></script>
-    <script src="bower_components/angular-aria/angular-aria.js"></script>
-    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-    <script src="bower_components/angular-messages/angular-messages.js"></script>
-    <script src="bower_components/angular-resource/angular-resource.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="bower_components/angular-touch/angular-touch.js"></script>
-    <script src="bower_components/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
-    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="app/bower_components/jquery/dist/jquery.js"></script>
+    <script src="app/bower_components/angular/angular.js"></script>
+    <script src="app/bower_components/angular-animate/angular-animate.js"></script>
+    <script src="app/bower_components/angular-aria/angular-aria.js"></script>
+    <script src="app/bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="app/bower_components/angular-messages/angular-messages.js"></script>
+    <script src="app/bower_components/angular-resource/angular-resource.js"></script>
+    <script src="app/bower_components/angular-route/angular-route.js"></script>
+    <script src="app/bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="app/bower_components/angular-touch/angular-touch.js"></script>
+    <script src="app/bower_components/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+    <script src="app/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
-    <script src="scripts/app.js"></script>
-    <script src="scripts/controllers/main.js"></script>
-    <script src="scripts/controllers/about.js"></script>
-    <script src="scripts/services/exp-service.js"></script>
-    <script src="scripts/services/about-service.js"></script>
+    <script src="app/scripts/app.js"></script>
+    <script src="app/scripts/controllers/main.js"></script>
+    <script src="app/scripts/controllers/about.js"></script>
+    <script src="app/scripts/services/exp-service.js"></script>
+    <script src="app/scripts/services/about-service.js"></script>
     <!-- endbuild -->
 </body>
 </html>
