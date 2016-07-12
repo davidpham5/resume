@@ -35,7 +35,6 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -48,7 +47,31 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="header">
+    <header id="navigation">
+      <nav class="navbar">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-xs-9">
+              <a href="#" class="branding">DP</a>
+            </div>
+            <div class="col-xs-3">
+              <div class="navbar-right">
+                <ul class="list-inline">
+                  <li>
+                    <a href="http://davidpham5.github.io/wedding-wire-portfolio/">Home</a>
+                  </li>
+                  <li>
+                    <a href="http://davidpham5.github.io/resume/">Resume</a>
+                    
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <!-- <div class="header">
       <div class="navbar navbar-default" role="navigation">
         <div class="container">
           <div class="navbar-header">
@@ -73,7 +96,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <div class="container">
     <div ng-view=""></div>
@@ -101,7 +124,6 @@
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-aria/angular-aria.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
