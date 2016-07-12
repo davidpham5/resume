@@ -1,0 +1,16 @@
+/* Main marketing message and sign up button */
+.jumbotron {
+  text-align: center;
+  background-color: #fff;
+}
+.jumbotron .btn {
+  font-size: 21px;
+  padding: 14px 24px;
+}
+.container .jumbotron, .container-fluid .jumbotron {
+    padding-right: 40px;
+    padding-left: 40px;
+}
+.header {
+  margin-bottom: 30px;
+}
