@@ -16,6 +16,7 @@ angular.module('pham6App')
 		    {
 			    company: 'Symplicity',
 			    link: '/symplicity',
+			    id: 'symplicity',
 			    start: 'November 2012',
 			    end: 'Present',
 			    title: 'Front-End Developer',
@@ -32,6 +33,16 @@ angular.module('pham6App')
 					'Partner program with back-end developer to integrate server-side code into front-end interfaces',
 					'Champion user-centered design, web standards, usability, and accessibility in SCRUM meetings and strategic level meetings',
 					'Develop in AngularJS, Bootstrap 3, Git, NPM, Bower, Grunt, LESS/ SCSS stack daily'
+			    ],
+			    products: [
+			    	'OneStop 1.0 - 2.8',
+					'CSM Dashboard Analytics',
+					'Accommodate Manager UI 2.0',
+					'Entreprise Dashboard'
+			    ],
+			    about: [
+					'Symplicity is a market leader in enterprise technology and information systems management for higher education, government, and businesses. Symplicity is committed to providing its clients with innovative solutions and services that enable them to streamline business processes, improve performance, and cultivate positive relationships with their students, customers, and communities.',
+					'Symplicity offers a comprehensive suite of products for admissions, career services, advising, student conduct, campus life, housing & residence life, and alumni engagement offices. Now reaching more than 30 million students worldwide, Symplicity is the leading provider of student affairs solutions in higher education.'
 			    ]
 			},
 			{
@@ -44,7 +55,7 @@ angular.module('pham6App')
 				    city: 'Washington DC',
 				    state: 'DC'
 			    },
-			    skils: [
+			    skills: [
 			    	'Manage 108 employees time and attendance time files through web-based program, Web TA',
 					'Organized new staff orientation for all new employees, interns, and volunteers',
 					'Direct Congressional staffers to the appropriate specialist for inquiries and analysis',
@@ -52,6 +63,9 @@ angular.module('pham6App')
 					'Schedule executive senior staff interviews and meetings',
 					'Execute over 25 new employee orientations',
 					'Author monthly bibliography of all Congressional Research Service confidential memos and reports'
+			    ],
+			    about: [
+			    	'The Domestic Social Policy (DSP) Division\'s work includes analyses of domestic policy and social program issues. These include education, labor and worker safety; health-care insurance and financing; health services and research; aging policy studies; Social Security, pensions and disability insurance; immigration, homeland security, domestic intelligence and criminal justice; and welfare, nutrition and housing programs.'
 			    ]
 			},
 			{
@@ -73,6 +87,9 @@ angular.module('pham6App')
 					'Prepared legal research and presentation on Spanish Piracy Issues for PIA Senior Counsel',
 					'Scheduled executive interviews for senior management',
 					'Represented the Office of Policy and International Affairs in teleconference meetings.'
+			    ],
+			    about: [
+			    	'The Office of Policy and International Affairs (“PIA”) is headed by the Associate Register of Copyrights and Director of Policy and International Affairs, who is an expert copyright attorney and one of four legal advisors to the Register. This Office assists the Register with critical policy functions of the U.S. Copyright Office, including domestic and international policy analyses, legislative support, and trade negotiations. PIA represents the U.S. Copyright Office at meetings of government officials concerned with the international aspects of intellectual property protection, and provides regular support to Congress and its committees on statutory amendments and construction.'
 			    ]
 			},
 			{
@@ -106,6 +123,9 @@ angular.module('pham6App')
 					'Scheduled executive senior staff meetings and conferences',
 					'Collaborated with Human Capital Management staff in conducting position description title quality control project for two divisions: OSI (90 employees) and Information Technology Services (ITS) (21 employees)',
 					'Managed Hispanic Association of Colleges and Universities (HACU) internship for OSI'
+			    ],
+			    about: [
+			    	'The Office of Strategic Initiatives supports the Library’s mission in several ways: by directing the national program for longterm preservation of digital cultural assets; leading a collaborative institutionwide effort to develop consolidated plans for our digital future; and integrating the delivery of information technology services.'
 			    ]
 			}
 	    ],
@@ -135,7 +155,7 @@ angular.module('pham6App')
 		    'Bower',
 		    'Grunt',
 		    'Yeoman',
-		    'Github'		    
+		    'Github'
 	    ]
     };
   });

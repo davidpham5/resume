@@ -1,26 +1,9 @@
-<div class="jumbotron bg-white">
-	<h1>David Chico Pham</h1>
-	<p class="lead">
-		Front-End Developer. I build useful and beautiful interfaces.
-	</p>
-  	<div class="avatar">
-		<div class="profile-pic round">
-			<img src="app/images/david1.png" alt="" />
-		</div>
-	</div>
-	<br />
-	<div class="text-center">
-		<ul class="list-inline">
-			<li><a href="https://twitter.com/davidpham5" target="_blank"><span class="fa fa-twitter fa-2x">&nbsp;</span></a></li>
-			<li><a href="https://github.com/davidpham5" target="_blank"><span class="fa fa-github fa-2x">&nbsp;</span></a></li>	
-			<li><a href="https://linkedin.com/in/davidmpham" target="_blank"><span class="fa fa-linkedin fa-2x">&nbsp;</span></a>		
-		</ul>
-	</div>
-</div>
+<div ng-include="'views/hero-partial.html'"></div>
+
 <div class="row marketing">
- 	<div class="col-md-8 main">
-	 	 <div class="main-section" ng-include="'app/views/experiences.html'"></div>
-	 	 <div class="main-section" ng-include="'app/views/vis-comm.html'"></div>
+ 	<div class="col-md-8 main" >
+	 	 <div class="main-section" ng-include="'views/experiences.html'"></div>
+	 	 <div class="main-section" ng-include="'views/vis-comm.html'"></div>
  	</div>
  	<div class="col-md-4 sidebar">
 	 	<div class="sidebar-section">

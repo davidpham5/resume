@@ -23,23 +23,24 @@ angular
 
     $routeProvider
       .when('/', {
-	  	  templateUrl: 'app/views/main.html',
+	  	  templateUrl: 'views/main.html',
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
       .when('/about', {
- 	      templateUrl: 'app/views/about.html',
+ 	      templateUrl: 'views/about.html',
         controller: 'AboutCtrl',
         controllerAs: 'about'
       })
-      .when('/symplicity', {
-        templateUrl: 'app/views/symplicity-detail.html',
-        controller: 'SymplicityCtrl',
-        controllerAs: 'symp'
+      .when('/work/:id', {
+        templateUrl: 'views/experience-detail.html',
+        controller: 'ExpDetailCtrl',
+        controllerAs: 'expWorkCtrl'
       })
       .otherwise({
         redirectTo: '/'
       });
-  
+
       $locationProvider.html5Mode(true);
+
   });

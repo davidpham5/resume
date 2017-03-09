@@ -1,0 +1,14 @@
+<div ng-include="'views/hero-partial.html'"></div>
+
+<h2>Responsibilities</h2>
+<ul class="exp">
+    <li ng-repeat="skill in skills">{{ skill }}</li>
+</ul>
+
+<h2 ng-if="products">Products</h2>
+<ul ng-if="products" class="exp">
+    <li ng-repeat="product in products">{{ product }}</li>
+</ul>
+
+<h2 ng-if="about">About</h2>
+<p ng-if="about" ng-repeat="description in about">{{ description }}</p>
