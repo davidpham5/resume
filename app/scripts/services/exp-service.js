@@ -85,11 +85,11 @@ angular.module('pham6App')
 				    city: 'Washington DC',
 				    state: 'DC'
 			    },
-			    skills: {
+			    skills: [
 			    	'Handpicked by the Librarian of Congress, Dr. James Billington to serve as a committee member to his pecial task force'
 					'Analyzed internet cultural trends and technological advances in broadband infrastructure, cloucomputing, mobile device operating systems, and intellectual property protections',
 					'Communicated Library of Congress digital challenges to Strategic Initiatives and Policy Committee'
-			    }
+			    ]
 			},
 			{
 				title: 'Office Assistant',
