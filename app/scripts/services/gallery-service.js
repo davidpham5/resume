@@ -16,5 +16,5 @@ angular.module('pham6App')
 	            //Returning the promise object
 	            return deferred.promise;
 			}
-		}
+		};
 	});	

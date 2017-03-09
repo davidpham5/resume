@@ -23,6 +23,7 @@ angular.module('pham6App')
 	    experiences: [
 		    {
 			    company: 'Symplicity',
+			    link: 'symplicity',
 			    start: 'November 2012',
 			    end: 'Present',
 			    title: 'Front-End Developer',

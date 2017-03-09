@@ -36,6 +36,11 @@ angular.module('pham6App', [
 	      controller: 'PortfolioCtrl',
 	      controllerAs: 'portfolio'
       })
+      .when('/symplicty', {
+        templateUrl: 'views/symplicity-detail.html',
+        controller: 'SymplicityCtrl',
+        controllerAs: 'symp'
+      })
       .otherwise({
         redirectTo: '/'
       });
