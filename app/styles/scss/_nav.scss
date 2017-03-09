@@ -20,3 +20,10 @@
 .nav > li > a:focus {
     background-color: transparent;
 }
+.nav {
+    &.flex-end {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+}

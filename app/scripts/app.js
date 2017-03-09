@@ -19,19 +19,27 @@ angular
     'ngSanitize',
     'ngTouch'
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, $locationProvider) {
+
     $routeProvider
       .when('/', {
-	  	  templateUrl: 'app/views/main.html',
+	  	  templateUrl: 'views/main.html',
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
       .when('/about', {
- 	      templateUrl: 'app/views/about.html',
+ 	      templateUrl: 'views/about.html',
         controller: 'AboutCtrl',
         controllerAs: 'about'
+      })
+      .when('/symplicity', {
+        templateUrl: 'views/symplicity-detail.html',
+        controller: 'SymplicityCtrl',
+        controllerAs: 'symp'
       })
       .otherwise({
         redirectTo: '/'
       });
+  
+      $locationProvider.html5Mode(true);
   });

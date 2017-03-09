@@ -6,6 +6,7 @@
  * @description
  * # workExp
  * Service in the pham6App.
+ * gh-pages
  */
 angular.module('pham6App')
   .service('ExpService', function () {
@@ -14,13 +15,24 @@ angular.module('pham6App')
 	    experiences: [
 		    {
 			    company: 'Symplicity',
+			    link: '/symplicity',
 			    start: 'November 2012',
 			    end: 'Present',
 			    title: 'Front-End Developer',
 			    location: {
 				    city: 'Washington DC',
 				    state: 'DC'
-			    }
+			    },
+			    skills: [
+			    	'Develop web apps from the ground-up using AngularJS (and AngularJS 2)',
+					'Expert-level proficiency coding HTML, and CSS, including ARIA support',
+					'Intimate knowledge of cross-browser challenges, e.g. Internet Explorer 11, Firefox, Chrome, Mobile Safari, and Safari',
+					'Extensive coding in standards-compliant markup and CSS-driven layouts that separate content from presentation',
+					'Code beautiful, readable, efficient, event-driven JavaScript, in AngularJS, vanilla JS, or jQuery',
+					'Partner program with back-end developer to integrate server-side code into front-end interfaces',
+					'Champion user-centered design, web standards, usability, and accessibility in SCRUM meetings and strategic level meetings',
+					'Develop in AngularJS, Bootstrap 3, Git, NPM, Bower, Grunt, LESS/ SCSS stack daily'
+			    ]
 			},
 			{
 			    company: 'Congressional Research Service',
