@@ -10,4 +10,5 @@
 angular.module('pham6App')
   .controller('MainCtrl', function ($scope, ExpService) {
     $scope.exp = ExpService;
+    $scope.publishToGH = publishToGH;
   });
