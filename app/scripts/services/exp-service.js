@@ -43,7 +43,16 @@ angular.module('pham6App')
 			    location: {
 				    city: 'Washington DC',
 				    state: 'DC'
-			    }
+			    },
+			    skils: [
+			    	'Manage 108 employees time and attendance time files through web-based program, Web TA',
+					'Organized new staff orientation for all new employees, interns, and volunteers',
+					'Direct Congressional staffers to the appropriate specialist for inquiries and analysis',
+					'Coordinate emergence preparedness procedures for 6 sections, 108 employees, and 6 Research Managers',
+					'Schedule executive senior staff interviews and meetings',
+					'Execute over 25 new employee orientations',
+					'Author monthly bibliography of all Congressional Research Service confidential memos and reports'
+			    ]
 			},
 			{
 				title: 'Research Legal Assistant',
@@ -51,10 +60,20 @@ angular.module('pham6App')
 				department: 'Office of Policy and International Affairs',
 				start: 'September 2009',
 				end: 'December 2009',
-				 location: {
+				location: {
 				    city: 'Washington DC',
 				    state: 'DC'
-			    }
+			    },
+			    skills: [
+			    	'Hand picked by the Associate Register to the U.S. Copyright to assist in the Google Book Settlement case',
+					'Represented U.S. Copyright in Net Neutrality Conferences',
+					'Researched legal analysis on U.S. Copyright and Orphan Works',
+					'Reviewed Federal Registry comments on the Google Book Settlement Proposal',
+					'Captured 352 media articles related to Google Book Settlement for the Copyright Register\'s Congressional \'Testimony in November 2009',
+					'Prepared legal research and presentation on Spanish Piracy Issues for PIA Senior Counsel',
+					'Scheduled executive interviews for senior management',
+					'Represented the Office of Policy and International Affairs in teleconference meetings.'
+			    ]
 			},
 			{
 				title: 'Committee Member',
@@ -62,9 +81,14 @@ angular.module('pham6App')
 				company: 'Strategic Initiatives and Policy Committee',
 				start: 'September 2009',
 				end: 'December 2009',
-				 location: {
+				location: {
 				    city: 'Washington DC',
 				    state: 'DC'
+			    },
+			    skills: {
+			    	'Handpicked by the Librarian of Congress, Dr. James Billington to serve as a committee member to his pecial task force'
+					'Analyzed internet cultural trends and technological advances in broadband infrastructure, cloucomputing, mobile device operating systems, and intellectual property protections',
+					'Communicated Library of Congress digital challenges to Strategic Initiatives and Policy Committee'
 			    }
 			},
 			{
@@ -73,10 +97,16 @@ angular.module('pham6App')
 				company: 'Office of Strategic Initiatives',
 				start: 'June 2006',
 				end: 'October 2007',
-				 location: {
+				location: {
 				    city: 'Washington DC',
 				    state: 'DC'
-			    }
+			    },
+			    skills: [
+			    	'Coordinated employee orientation for the Offices of Strategic Initiatives (OSI)',
+					'Scheduled executive senior staff meetings and conferences',
+					'Collaborated with Human Capital Management staff in conducting position description title quality control project for two divisions: OSI (90 employees) and Information Technology Services (ITS) (21 employees)',
+					'Managed Hispanic Association of Colleges and Universities (HACU) internship for OSI'
+			    ]
 			}
 	    ],
 	    education: {
