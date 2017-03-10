@@ -8,4 +8,10 @@ angular.module('pham6App')
     $scope.skills = expDetail.skills;
     $scope.products = expDetail.products;
     $scope.about = expDetail.about;
+
+    if (publishToGH) {
+        $scope.publishToGH = true;
+    } else {
+        return false;
+    }
 });
