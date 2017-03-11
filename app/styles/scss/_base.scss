@@ -32,7 +32,9 @@ a:focus {
   padding-left: 15px;
   padding-right: 15px;
 }
-
+ng-view {
+  min-height: 100vh;
+}
 /* Custom page header */
 .header {
   border-bottom: 1px solid #e5e5e5;

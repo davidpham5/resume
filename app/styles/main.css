@@ -10013,6 +10013,10 @@ a:focus {
   padding-right: 15px;
 }
 
+ng-view {
+  min-height: 100vh;
+}
+
 /* Custom page header */
 .header {
   border-bottom: 1px solid #e5e5e5;
@@ -10140,6 +10144,14 @@ a:focus {
   margin-bottom: 0px;
 }
 
+@supports (initial-letter: 3) or (-webkit-initial-letter: 3) {
+  .drop-cap::first-letter {
+    font-weight: bold;
+    margin-right: 0.5em;
+    initial-letter: 2;
+    -webkit-initial-letter: 2;
+  }
+}
 .container-narrow > hr {
   margin: 30px 0;
 }

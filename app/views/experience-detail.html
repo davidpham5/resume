@@ -12,4 +12,4 @@
 </ul>
 
 <h2 ng-if="about">About</h2>
-<p ng-if="about" ng-repeat="description in about">{{ description }}</p>
+<p ng-if="about" ng-repeat="description in about" ng-class="$index === 0 ? 'drop-cap' : ''">{{ description }}</p>
