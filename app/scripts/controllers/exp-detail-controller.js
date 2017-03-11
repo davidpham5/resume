@@ -11,14 +11,18 @@ angular.module('pham6App')
 
     function getAvatarPath() {
         var avatarPath = '';
+        var heroPartial = '';
 
         if (publishToGH) {
             avatarPath = appPath + '/images/david1.png';
+            heroPartial = appPath + '/views/hero-partial.html';
         } else {
             avatarPath = 'images/david1.png';
+            heroPartial = 'views/hero-partial.html';
         }
 
         $scope.avatarPath = avatarPath;
+        $scope.heroPartial = heroPartial;
     }
     getAvatarPath();
 });
