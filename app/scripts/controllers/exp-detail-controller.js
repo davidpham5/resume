@@ -9,9 +9,16 @@ angular.module('pham6App')
     $scope.products = expDetail.products;
     $scope.about = expDetail.about;
 
-    if (publishToGH) {
-        $scope.publishToGH = true;
-    } else {
-        return false;
+    function getAvatarPath() {
+        var avatarPath = '';
+
+        if (publishToGH) {
+            avatarPath = appPath + 'images/david1.png';
+        } else {
+            avatarPath = 'images/david1.png';
+        }
+
+        $scope.avatarPath = avatarPath;
     }
+    getAvatarPath();
 });
