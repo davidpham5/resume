@@ -15,4 +15,5 @@ angular.module('pham6App')
    	$scope.heroPartial = partials.heroPartial;
    	$scope.experiencesPartial = partials.experiencesPartial;
    	$scope.visCommPartial = partials.visCommPartial;
+   	$scope.expDetail = partials.expDetail;
   });

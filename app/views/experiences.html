@@ -6,8 +6,7 @@
 	<ul class="list-inline">
 		<li>
 			<h3>
-				<a ng-if="publishToGH" ng-href="/resume/work/{{$index}}">{{work.company}}</a>
-				<a ng-if="!publishToGH" ng-href="/work/{{$index}}">{{work.company}}</a>
+				<a ng-href="{{expDetail}}{{$index}}">{{work.company}}</a>
 			</h3>
 		</li>
 		<li class="text-muted">{{work.department}}</li>
