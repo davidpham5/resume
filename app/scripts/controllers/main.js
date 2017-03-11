@@ -21,8 +21,8 @@ angular.module('pham6App')
     		$scope.publishToGH = true;
     		avatarPath = appPath + '/images/david1.png';
     		heroPartial = appPath + '/views/hero-partial.html';
-    		experiencesPartial = appPath + 'app/views/experiences.html';
-    		visCommPartial = appPath + 'app/views/vis-comm.html';
+    		experiencesPartial = appPath + '/views/experiences.html';
+    		visCommPartial = appPath + '/views/vis-comm.html';
 	    } else {
 	    	avatarPath = 'images/david1.png';
 	    	heroPartial = 'views/hero-partial.html';
