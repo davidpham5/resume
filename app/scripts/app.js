@@ -9,7 +9,7 @@
  * Main module of the application.
  */
 var appPath = 'app';
-var publishToGH = false;
+var publishToGH = true;
 
 angular
   .module('pham6App', [
