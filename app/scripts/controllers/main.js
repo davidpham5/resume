@@ -19,13 +19,13 @@ angular.module('pham6App')
  		
  		if (publishToGH) { // publishToGH is defined in app.js
     		$scope.publishToGH = true;
-    		avatarPath = appPath + 'app/images/david1.png';
+    		avatarPath = appPath + '/images/david1.png';
     		heroPartial = appPath + '/views/hero-partial.html';
     		experiencesPartial = appPath + 'app/views/experiences.html';
     		visCommPartial = appPath + 'app/views/vis-comm.html';
 	    } else {
 	    	avatarPath = 'images/david1.png';
-	    	heroPartial = '/views/hero-partial.html';
+	    	heroPartial = 'views/hero-partial.html';
 	    	experiencesPartial = 'views/experiences.html';
 	    	visCommPartial = 'views/vis-comm.html';
 	    }

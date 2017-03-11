@@ -13,7 +13,7 @@ angular.module('pham6App')
         var avatarPath = '';
 
         if (publishToGH) {
-            avatarPath = appPath + 'images/david1.png';
+            avatarPath = appPath + '/images/david1.png';
         } else {
             avatarPath = 'images/david1.png';
         }
