@@ -8,10 +8,9 @@
  * Service in the pham6App.
  */
 angular.module('pham6App')
-  .service('partialsService', function ($q) {
-
+  .service('partialsService', function () {
   	var models = {
-  		getConfig: function() {
+  		getConfig: function(publishToGH, appPath) {
   			var config = {
   				publishToGH: publishToGH,
   				appPath: appPath
@@ -50,6 +49,6 @@ angular.module('pham6App')
 		    };
   		}
   	};
-    
+
     return models;
   });

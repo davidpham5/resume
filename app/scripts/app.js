@@ -1,5 +1,4 @@
 'use strict';
-
 /**
  * @ngdoc overview
  * @name pham6App
@@ -8,9 +7,6 @@
  *
  * Main module of the application.
  */
-
-
-
 angular
   .module('pham6App', [
     'ngAnimate',
@@ -32,7 +28,7 @@ angular
       }
       var publishToGH = isPublish().publishToGH;
       var appPath = isPublish().appPath;
-      
+
       $routeProvider
       .when('/', {
         templateUrl: publishToGH ? appPath + '/views/main.html' : '/views/main.html',
@@ -52,17 +48,21 @@ angular
         controller: 'ExpDetailCtrl',
         controllerAs: 'expWorkCtrl'
       })
+      .when('/about', {
+        templateUrl: publishToGH ? appPath + '/views/about.html' : '/views/about.html',
+        controller: 'AboutCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
 
       $locationProvider.html5Mode(true);
-     
+
   });
 
 angular.module('pham6App')
 	.controller('AppCtrl', function($scope) {
 		$scope.theme = function() {
 			$scope.light = !$scope.light;
-		};	
+		};
 	});
