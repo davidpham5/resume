@@ -10161,6 +10161,14 @@ ng-view {
   margin: 30px 0;
 }
 
+.main {
+  height: 88vh;
+}
+
+.readability {
+  margin: 0 15vw;
+}
+
 .exp {
   margin-bottom: 15px;
 }
