@@ -8,7 +8,11 @@
  *
  * Main module of the application.
  */
-angular.module('pham6App', [
+
+
+
+angular
+  .module('pham6App', [
     'ngAnimate',
     'ngAria',
     'ngCookies',
@@ -16,39 +20,33 @@ angular.module('pham6App', [
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch',
-    'ui.bootstrap'
+    'ngTouch'
   ])
-  .config(function ($routeProvider) {
-    $routeProvider
+  .config(function ($routeProvider, $locationProvider) {
+
+      $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
+        templateUrl: publishToGH ? appPath + '/views/main.html' : '/views/main.html',
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
-      })
-      .when('/portfolio', {
-	      templateUrl: 'views/portfolio.html',
-	      controller: 'PortfolioCtrl',
-	      controllerAs: 'portfolio'
-      })
-      .when('/symplicty', {
-        templateUrl: 'views/symplicity-detail.html',
-        controller: 'SymplicityCtrl',
-        controllerAs: 'symp'
+      .when('/work/:id', {
+        templateUrl: publishToGH ? appPath + '/views/experience-detail.html' : '/views/experience-detail.html',
+        controller: 'ExpDetailCtrl',
+        controllerAs: 'expWorkCtrl'
       })
       .otherwise({
         redirectTo: '/'
       });
+
+      $locationProvider.html5Mode(true);
+
   });
 angular.module('pham6App')
 	.controller('AppCtrl', function($scope) {
 		$scope.theme = function() {
 			$scope.light = !$scope.light;
-		};
-			
+      $scope.appPath = 'app';
+      $scope.publishToGH = false;  
+		};	
 	});

@@ -10023,6 +10023,50 @@ body.dark .text-muted {
   color: #d1d1d1;
 }
 
+a {
+  color: #00e18a;
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  color: #48ffb9;
+  transition: color 0.3s ease-in-out;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+ng-view {
+  min-height: 100vh;
+}
+
+/* Custom page header */
+.header {
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 10px;
+}
+
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px;
+  padding-bottom: 19px;
+}
+
+/* Custom page footer */
+.footer {
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+}
+
 .avatar {
   z-index: 3;
   position: relative;
@@ -10059,37 +10103,41 @@ body.dark .text-muted {
   margin-left: -6px;
 }
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-  padding-left: 15px;
-  padding-right: 15px;
-}
-
-/* Custom page header */
-.header {
-  border-bottom: 1px solid #e5e5e5;
-  margin-bottom: 10px;
-}
-
-/* Make the masthead heading the same height as the navigation */
-.header h3 {
-  margin-top: 0;
+.navbar-default {
+  background-color: #fff;
+  border: none;
   margin-bottom: 0;
-  line-height: 40px;
-  padding-bottom: 19px;
 }
 
-/* Custom page footer */
-.footer {
-  padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
+.navbar {
+  background-color: #fff;
+  font-size: 16px;
 }
 
-.container-narrow > hr {
-  margin: 30px 0;
+.branding {
+  text-indent: -999px;
+  display: block;
+  height: 50px;
+  width: 50px;
+  background-image: url("../images/dp-logo.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+}
+
+.navbar-nav > li > a {
+  padding: 15px 8px;
+}
+
+.nav > li > a:hover,
+.nav > li > a:focus {
+  background-color: transparent;
+}
+
+.nav.flex-end {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
 }
 
 /* Main marketing message and sign up button */
@@ -10103,7 +10151,7 @@ body.dark .text-muted {
   padding: 14px 24px;
 }
 
-container .jumbotron, .container-fluid .jumbotron {
+.container .jumbotron, .container-fluid .jumbotron {
   padding-right: 40px;
   padding-left: 40px;
 }
@@ -10130,10 +10178,16 @@ container .jumbotron, .container-fluid .jumbotron {
   margin-bottom: 0px;
 }
 
-.navbar-default {
-  background-color: #fff;
-  border: none;
-  margin-bottom: 0;
+@supports (initial-letter: 3) or (-webkit-initial-letter: 3) {
+  .drop-cap::first-letter {
+    font-weight: bold;
+    margin-right: 0.25em;
+    initial-letter: 2;
+    -webkit-initial-letter: 2;
+  }
+}
+.container-narrow > hr {
+  margin: 30px 0;
 }
 
 .exp {

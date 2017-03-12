@@ -1,0 +1,22 @@
+<h1 class="header">
+	{{exp.header}}
+</h1>
+<div class="exp" ng-repeat="exp in exp.exp">
+	<ul class="list-inline">
+		<li>
+			<h3>
+				{{exp.company}}
+			</h3>
+		</li>
+		<li class="text-muted">{{exp.department}}</li>
+	</ul>
+	<ul class="list-inline">
+		<li>
+			<p class="strong">{{exp.title}}</p>
+		</li>
+		<li>
+			<span class="text-muted">{{exp.start}} - {{exp.end}}</span>
+		</li>
+		<li><span class="text-muted">{{exp.location.city}}</span></li>
+	</ul>
+</div>

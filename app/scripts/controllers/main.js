@@ -8,6 +8,12 @@
  * Controller of the pham6App
  */
 angular.module('pham6App')
-  .controller('MainCtrl', function ($scope, ExpService) {
-    $scope.exp = ExpService;
-});
+  .controller('MainCtrl', function ($scope, ExpService, partialsService) {
+	var partials = partialsService.getPartials();
+    $scope.exp = ExpService; 
+    $scope.avatarPath = partials.avatarPath;
+    $scope.heroPartial = partials.heroPartial;
+    $scope.experiencesPartial = partials.experiencesPartial;
+    $scope.visCommPartial = partials.visCommPartial;
+    $scope.expDetail = partials.expDetail;
+  });

@@ -2,7 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>David Pham Resume</title>
+    <base href="/">
+  <!-- Hey There! Pleasure to see you poking around. Like you, I tend to look around to see how sites or apps are built. Take your time and look around. Let me know if you have any questions.  -->
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -19,48 +21,40 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <!-- Add your site or application content here -->
-    <div class="header">
-      <div class="navbar navbar-default" role="navigation">
+    <header id="navigation">
+      <nav class="navbar">
         <div class="container">
-          <div class="navbar-header">
-
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-
-            <a class="navbar-brand sr-only" href="#/">DCP</a>
-          </div>
-
-          <div class="collapse navbar-collapse" id="js-navbar-collapse">
-
-            <ul class="nav navbar-nav">
-              <li class=""><a href="#/">Home</a></li>
-              <li><a ng-href="#/portfolio">Portfolio</a></li>
-              <li><a ng-href="#/about">About</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-	            <li>
-	            	<a role="button" class="btn btn-link" ng-click="theme()">
-		        	    <span class="fa" ng-class="light ? 'fa-toggle-on' : 'fa-toggle-off'">&nbsp;</span>
-		            </a>
-		        </li>
-            </ul>
+          <div class="row">
+            <div class="col-xs-2">
+              <a href="#" class="branding">DP</a>
+            </div>
+            <div class="col-xs-10">
+              <div class="">
+                <ul class="nav navbar-nav navbar-right flex-end">
+                  <li>
+                    <a href="http://davidpham5.github.io/portfolio/">Welcome</a>
+                  </li>
+                  <li>
+                    <a href="http://davidpham5.github.io/portfolio/portfolio.html">Portfolio</a>
+                  </li>
+                  <li>
+                    <a href="http://davidpham5.github.io/resume/">Resume</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-	<script type="in/Login"></script>
+      </nav>
+    </header>
+
     <div class="container">
-    <div ng-view=""></div>
+      <div ng-view=""></div>
     </div>
-	
+
     <div class="footer">
       <div class="container">
-        <p><span class="fa fa-heart">&nbsp;</span>Made with a lot love.</p>
+        <p><span class="fa fa-heart">&nbsp;</span>Made with a lot love :)</p>
       </div>
     </div>
 
@@ -96,12 +90,9 @@
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers/main.js"></script>
-    <script src="scripts/controllers/about.js"></script>
-    <script src="scripts/controllers/portfolio-controller.js"></script>
-    <script src="scripts/controllers/symplicity-controller.js"></script>
+    <script src="scripts/controllers/exp-detail-controller.js"></script>
     <script src="scripts/services/exp-service.js"></script>
-    <script src="scripts/services/about-service.js"></script>
-     <script src="scripts/services/gallery-service.js"></script>
+    <script src="scripts/services/partials-service.js"></script>
     <!-- endbuild -->
 </body>
 </html>

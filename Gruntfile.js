@@ -66,8 +66,8 @@ module.exports = function (grunt) {
         ]
       },
       sass: {
-	    files: ['<%= yeoman.app %>/styles/scss/*.scss'],
-	    tasks: ['sass']
+        files: ['<%= yeoman.app %>/styles/scss/*.scss'],
+        tasks: ['sass']
       }
     },
 
@@ -402,16 +402,16 @@ module.exports = function (grunt) {
         'svgmin'
       ]
     },
-	sass: {
-		dist: {	// Target
-		   options: {	// Target options
-			 style: 'expanded'
-		   },
-		   files: {	// Dictionary of files
-			 'app/styles/main.css': 'app/styles/scss/main.scss'	// 'destination': 'source'
-		   }
-		}
-	},
+    sass: {
+      dist: { // Target
+         options: { // Target options
+         style: 'expanded'
+         },
+         files: { // Dictionary of files
+         'app/styles/main.css': 'app/styles/scss/main.scss' // 'destination': 'source'
+         }
+      }
+    },
     // Test settings
     karma: {
       unit: {
@@ -420,9 +420,6 @@ module.exports = function (grunt) {
       }
     }
   });
-  
-grunt.loadNpmTasks('grunt-contrib-sass');
-
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
     if (target === 'dist') {
       return grunt.task.run(['build', 'connect:dist:keepalive']);
@@ -433,8 +430,8 @@ grunt.loadNpmTasks('grunt-contrib-sass');
       'wiredep',
       'concurrent:server',
       'autoprefixer:server',
-      'connect:livereload',
       'sass',
+      'connect:livereload',
       'watch'
     ]);
   });
@@ -474,7 +471,7 @@ grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.registerTask('default', [
     'newer:jshint',
     'test',
-    'build',
-    'sass'
+    'sass',
+    'build'
   ]);
 };
