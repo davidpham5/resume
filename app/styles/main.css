@@ -10167,6 +10167,8 @@ ng-view {
 
 .readability {
   margin: 0 15vw;
+  float: left;
+  margin-bottom: 5vh;
 }
 
 .exp {

@@ -61,8 +61,8 @@ angular
   });
 
 angular.module('pham6App')
-	.controller('AppCtrl', function($scope) {
-		$scope.theme = function() {
-			$scope.light = !$scope.light;
-		};
+	.controller('AppCtrl', function($scope, partialsService) {
+    partialsService.getConfig();
+    var publishToGH = partialsService.getConfig.publishToGH;
+    $scope.aboutLink = publishToGH ? 'resume/about' : '/about';
 	});
