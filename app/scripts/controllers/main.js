@@ -10,6 +10,7 @@
 angular.module('pham6App')
   .controller('MainCtrl', function ($scope, ExpService, partialsService) {
 	var partials = partialsService.getPartials();
+	
     $scope.exp = ExpService; 
     $scope.avatarPath = partials.avatarPath;
     $scope.heroPartial = partials.heroPartial;

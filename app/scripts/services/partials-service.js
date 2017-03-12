@@ -8,9 +8,20 @@
  * Service in the pham6App.
  */
 angular.module('pham6App')
-  .service('partialsService', function () {
+  .service('partialsService', function ($q) {
+
   	var models = {
+  		getConfig: function() {
+  			var config = {
+  				publishToGH: publishToGH,
+  				appPath: appPath
+  			};
+  			return config;
+  		},
   		getPartials: function() {
+  			var self = this;
+  			var publishToGH = self.getConfig.publishToGH;
+  			var appPath = self.getConfig.appPath;
   			var avatarPath = '';
 	    	var heroPartial = '';
 	    	var experiencesPartial = '';
@@ -36,7 +47,7 @@ angular.module('pham6App')
 		    	experiencesPartial: experiencesPartial,
 		    	visCommPartial: visCommPartial,
 		    	expDetail: expDetail
-		    }
+		    };
   		}
   	};
     

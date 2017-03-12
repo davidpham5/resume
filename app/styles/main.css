@@ -9973,15 +9973,6 @@ button.close {
   content: "";
 }
 
-h1, h2, h3, h4 {
-  font-family: 'Merriweather', serif;
-  margin-top: 0;
-}
-
-.strong, b {
-  font-weight: 700;
-}
-
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -9993,34 +9984,14 @@ body {
   padding: 0;
   font-family: 'Lato', sans-serif;
 }
-body.light {
-  background-color: #fff;
-  transition: all 0.3s ease-in-out;
+
+h1, h2, h3, h4 {
+  font-family: 'Merriweather', serif;
+  margin-top: 0;
 }
-body.dark {
-  background-color: #000;
-  color: #fff;
-  transition: all 0.3s ease-in-out;
-}
-body.dark .navbar-default {
-  background-color: #000;
-  color: #fff;
-  transition: all 0.3s ease-in-out;
-}
-body.dark .navbar-default a {
-  color: #5cb85c;
-  transition: all 0.3s ease-in-out;
-}
-body.dark .jumbotron {
-  background-color: #000;
-  color: #fff;
-  transition: all 0.3s ease-in-out;
-}
-body.dark a {
-  color: #5cb85c;
-}
-body.dark .text-muted {
-  color: #d1d1d1;
+
+.strong, b {
+  font-weight: 700;
 }
 
 a {
