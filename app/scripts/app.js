@@ -36,10 +36,9 @@ angular
         controllerAs: 'main',
         resolve: {
           partials: function(partialsService) {
-              // push up to parital service to define appPath and publishToGH
-              // toggle publishToGH above in config
-              partialsService.getConfig.appPath = appPath;
-              partialsService.getConfig.publishToGH = publishToGH;
+              // push up to parital service some parameters to define appPath and publishToGH
+              // toggle publishToGH above in config's isPublish();
+              partialsService.getConfig(appPath, publishToGH);
           }
         }
       })
