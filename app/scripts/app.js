@@ -63,5 +63,9 @@ angular
 angular.module('pham6App')
 	.controller('AppCtrl', function($scope, partialsService) {
     var publishToGH = true;
-    $scope.aboutLink = publishToGH ? '/resume/about' : '/about';
+    if (publishToGH) {
+      $scope.aboutLink = '/resume/about';
+    } else {
+      $scope.aboutLink = '/about';
+    }
 	});
