@@ -11,11 +11,10 @@ angular.module('pham6App')
   .service('partialsService', function () {
   	var models = {
   		getConfig: function(publishToGH, appPath) {
-  			var config = {
-  				publishToGH: publishToGH,
-  				appPath: appPath
-  			};
-  			return config;
+            var self = this;
+            self.getConfig.publishToGH = publishToGH;
+            self.getConfig.appPath = appPath;
+            return self;
   		},
   		getPartials: function() {
   			var self = this;

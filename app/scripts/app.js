@@ -38,7 +38,7 @@ angular
           partials: function(partialsService) {
               // push up to parital service some parameters to define appPath and publishToGH
               // toggle publishToGH above in config's isPublish();
-              partialsService.getConfig(appPath, publishToGH);
+              partialsService.getConfig(publishToGH, appPath);
           }
         }
       })
