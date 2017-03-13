@@ -61,11 +61,11 @@ angular
   });
 
 angular.module('pham6App')
-	.controller('AppCtrl', function($scope, partialsService) {
-    var publishToGH = true;
+	.controller('AppCtrl', function($scope) {
+    var publishToGH = false;
     if (publishToGH) {
       $scope.aboutLink = '/resume/about';
     } else {
-      $scope.aboutLink = '/about';
+      $scope.aboutLink = 'resume/about';
     }
 	});
