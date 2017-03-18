@@ -9,7 +9,7 @@
  * gh-pages
  */
 angular.module('pham6App')
-  .service('ExpService', function ($http) {
+  .service('ExpService', function () {
     return {
 	    header: 'Work Experiences',
 	    experiences: [

@@ -5,4 +5,5 @@ angular.module('pham6App')
 	var gallery = GalleryService.getAllItems().then(function(result){
 		$scope.gallary = result;
 	});
+	$scope.gallery = gallery;
 });

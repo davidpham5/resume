@@ -40,6 +40,9 @@
                   <li>
                     <a href="http://davidpham5.github.io/resume/">Resume</a>
                   </li>
+                  <li>
+                    <a ng-href="/lab">Lab</a>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -47,17 +50,17 @@
         </div>
       </nav>
     </header>
-
-    <div class="container">
-      <div ng-view=""></div>
-    </div>
-
-    <div class="footer">
+    <div class="main">
       <div class="container">
-        <p><a ng-href="/about">About </a>this project. <span class="fa fa-heart">&nbsp;</span>Made with a lot love :) </p>
+        <div  ng-view=""></div>
       </div>
-    </div>
 
+      <footer class="footer">
+          <div class="container">
+            <p><a ng-href="/about">About </a>this project. <span class="fa fa-heart">&nbsp;</span>Made with a lot love :) </p>
+          </div>
+      </footer>
+    </div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
@@ -94,6 +97,7 @@
     <script src="scripts/services/exp-service.js"></script>
     <script src="scripts/services/partials-service.js"></script>
     <script src="scripts/controllers/about-controller.js"></script>
+    <script src="scripts/controllers/lab-controller.js"></script>
     <!-- endbuild -->
 </body>
 </html>

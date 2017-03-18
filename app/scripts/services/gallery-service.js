@@ -6,10 +6,11 @@ angular.module('pham6App')
 			getAllItems: function(keyWord) {
 				var deferred = $q.defer();
 				var apiURL = 'https://api.flickr.com/services/rest/?method=flickr.photos.getRecent&api_key=8f313e56000b65c199feec72f724bb57&format=json';
-				
+				console.log(keyWord);
 				$http.get(apiURL).success(function(data){
 					deferred.resolve(data);
 				}).error(function (error) {
+					console.log(error);
                 	//Sending a friendly error message in case of failure
 					deferred.reject("An error occured while fetching items");
 	            });

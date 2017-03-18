@@ -30,36 +30,41 @@ angular
       var appPath = isPublish().appPath;
 
       $routeProvider
-      .when('/', {
-        templateUrl: publishToGH ? appPath + '/views/main.html' : '/views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main',
-        resolve: {
-          partials: function(partialsService) {
-              // push up to parital service some parameters to define appPath and publishToGH
-              // toggle publishToGH above in config's isPublish();
-              partialsService.getConfig(publishToGH, appPath);
+        .when('/', {
+          templateUrl: publishToGH ? appPath + '/views/main.html' : '/views/main.html',
+          controller: 'MainCtrl',
+          controllerAs: 'main',
+          resolve: {
+            partials: function(partialsService) {
+                // push up to parital service some parameters to define appPath and publishToGH
+                // toggle publishToGH above in config's isPublish();
+                partialsService.getConfig(publishToGH, appPath);
+            }
           }
-        }
-      })
-      .when('/work/:id', {
-        templateUrl: publishToGH ? appPath + '/views/experience-detail.html' : '/views/experience-detail.html',
-        controller: 'ExpDetailCtrl',
-        controllerAs: 'expWorkCtrl'
-      })
-      .when('/about', {
-        templateUrl: publishToGH ? appPath + '/views/about.html' : '/views/about.html',
-        controller: 'AboutCtrl'
-      })
-      .otherwise({
-        redirectTo: '/'
-      });
+        })
+        .when('/work/:id', {
+          templateUrl: publishToGH ? appPath + '/views/experience-detail.html' : '/views/experience-detail.html',
+          controller: 'ExpDetailCtrl',
+          controllerAs: 'expWorkCtrl'
+        })
+        .when('/about', {
+          templateUrl: publishToGH ? appPath + '/views/about.html' : '/views/about.html',
+          controller: 'AboutCtrl'
+        })
+        .when('/lab', {
+          templateUrl: publishToGH ? appPath + '/views/lab.html' : '/views/lab.html',
+          controller: 'LabCtrl',
+          controllerAs: 'lab'
+        })
+        .otherwise({
+          redirectTo: '/'
+        });
 
       $locationProvider.html5Mode(true);
 
   });
 
 angular.module('pham6App')
-	.controller('AppCtrl', function($scope) {
+	.controller('AppCtrl', function() {
 
 	});
