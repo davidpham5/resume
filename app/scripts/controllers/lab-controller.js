@@ -8,10 +8,9 @@
  * Controller of the pham6App
  */
 angular.module('pham6App')
-  .controller('LabCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('LabCtrl', function ($scope, partialsService) {
+    var partials = partialsService.getPartials();
+
+    $scope.heroPartial = partials.heroPartial;
+    $scope.avatarPath = partials.avatarPath;
   });
