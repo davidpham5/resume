@@ -27,13 +27,13 @@ angular.module('pham6App')
 	 		var expDetail = '';
 
 	 		if (publishToGH) { // publishToGH is defined in app.js
-	    		avatarPath = appPath + '/images/david1.png';
+	    		avatarPath = appPath + '/images/david2.JPG';
 	    		heroPartial = appPath + '/views/hero-partial.html';
 	    		experiencesPartial = appPath + '/views/experiences.html';
 	    		visCommPartial = appPath + '/views/vis-comm.html';
 	    		expDetail = '/resume/work/';
 		    } else {
-		    	avatarPath = 'images/david1.png';
+		    	avatarPath = 'images/david2.JPG';
 		    	heroPartial = 'views/hero-partial.html';
 		    	experiencesPartial = 'views/experiences.html';
 		    	visCommPartial = 'views/vis-comm.html';
