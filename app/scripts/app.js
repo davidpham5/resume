@@ -21,7 +21,7 @@ angular
   .config(function ($routeProvider, $locationProvider) {
       function isPublish() {
         var models = {
-          publishToGH: true,
+          publishToGH: false,
           appPath: 'app'
         };
         return models;
