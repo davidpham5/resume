@@ -157,9 +157,10 @@ angular.module("pham6App").service("ExpService", function() {
       "Membership Outreach Officer Capitol Hill Toastmasters Club #1460  (2008 - 2012)"
     ],
     skills: [
-      "AngularJS",
+      'React @16.*',
+      "AngularJS < 1.6",
       "Command Line",
-      "Agile",
+      "Agile & SCRUM",
       "Javascript",
       "HTML",
       "CSS",
