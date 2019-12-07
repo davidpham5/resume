@@ -32,10 +32,16 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "grunt test"
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
   },
   "dependencies": {
     "bower": "^1.8.8",
-    "sass": "^1.23.7"
+    "next": "^9.1.4",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "sass": "^1.23.7",
+    "tailwindcss": "^1.1.4"
   }
 }
