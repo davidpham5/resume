@@ -37,8 +37,10 @@
     "start": "next start"
   },
   "dependencies": {
+    "@zeit/next-css": "^1.0.1",
     "bower": "^1.8.8",
     "next": "^9.1.4",
+    "postcss-preset-env": "^6.7.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "sass": "^1.23.7",
