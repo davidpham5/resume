@@ -2,8 +2,8 @@ import React from "react";
 
 const WorkFlow = () => {
   return (
-    <div className="max-w-sm rounded overflow-hidden shadow-lg">
-      <h1 className="header">Work Flow</h1>
+    <div className="max-w-sm rounded overflow-hidden shadow-lg border p-4">
+      <h1 className="header text-2xl font-serif mb-2">Work Flow</h1>
       <ul>
         <li>Preferred IDE: VS Code</li>
         <li>Daily git work flow in Terminal</li>

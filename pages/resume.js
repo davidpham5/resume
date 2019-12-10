@@ -7,8 +7,10 @@ const Resume = () => {
   return (
     <div>
       <Hero className="flex mb-5" />
-      <WorkExp />
-      <WorkFlow />
+      <div className="container p-12">
+        <WorkExp />
+        <WorkFlow />
+      </div>
     </div>
   )
 }

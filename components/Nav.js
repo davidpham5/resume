@@ -3,16 +3,16 @@ import Link from "next/link";
 
 const Nav = () => {
   return (
-    <nav>
-      <ul>
-        <li>
+    <nav className="flex flex-row-reverse">
+      <ul className="inline-flex">
+        <li className="mr-5">
           <Link href="/">
-            <a>Home</a>
+            <a className="text-green-500">Home</a>
           </Link>
         </li>
-        <li>
+        <li className="mr-5">
           <Link href="/resume">
-            <a>Resume</a>
+            <a className="text-green-500">Resume</a>
           </Link>
         </li>
       </ul>
