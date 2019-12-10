@@ -2,7 +2,11 @@ import React from 'react';
 import WorkExp from '../components/Work-Experience/WorkExp'
 import WorkFlow from '../components/WorkFlow'
 import Hero from '../components/Hero'
+import Education from '../components/Education'
+import Skills from '../components/Skills'
+import Organizations from '../components/Organizations'
 import '../components/styles/_main.css'
+
 const Resume = () => {
   return (
     <div>
@@ -13,7 +17,9 @@ const Resume = () => {
           <WorkFlow />
         </div>
         <div className="w-1/3">
-          foo
+          <Education />
+          <Skills />
+          <Organizations />
         </div>
       </div>
     </div>
