@@ -10,7 +10,7 @@ const WorkExp = (...props) => {
         work.experiences.map((exp, index) => (
           <div className="exp max-w-2xl block bg-white mb-10" key={index}>
             <ul className="list-inline">
-              <li >
+              <li>
                 <h3 className="font-serif text-2xl">{exp.company}</h3>
               </li>
               {exp.department && (<li className="text-muted">{exp.department}</li>)}

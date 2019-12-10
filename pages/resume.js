@@ -7,9 +7,14 @@ const Resume = () => {
   return (
     <div>
       <Hero className="flex mb-5" />
-      <div className="container p-12">
-        <WorkExp />
-        <WorkFlow />
+      <div className="flex mb-4 container p-12">
+        <div className="w-2/3">
+          <WorkExp />
+          <WorkFlow />
+        </div>
+        <div className="w-1/3">
+          foo
+        </div>
       </div>
     </div>
   )
