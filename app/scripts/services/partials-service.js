@@ -23,27 +23,27 @@ angular.module('pham6App')
   			var avatarPath = '';
 	    	var heroPartial = '';
 	    	var experiencesPartial = '';
-	    	var visCommPartial = '';
+	    	var workFlowPartial = '';
 	 		var expDetail = '';
 
 	 		if (publishToGH) { // publishToGH is defined in app.js
 	    		avatarPath = appPath + '/images/david2.JPG';
 	    		heroPartial = appPath + '/views/hero-partial.html';
 	    		experiencesPartial = appPath + '/views/experiences.html';
-	    		visCommPartial = appPath + '/views/vis-comm.html';
+	    		workFlowPartial = appPath + '/views/work-flow.html';
 	    		expDetail = '/resume/work/';
 		    } else {
 		    	avatarPath = 'images/david2.JPG';
 		    	heroPartial = 'views/hero-partial.html';
 		    	experiencesPartial = 'views/experiences.html';
-		    	visCommPartial = 'views/vis-comm.html';
+		    	workFlowPartial = 'views/work-flow.html';
 		    	expDetail = '/work/';
 		    }
 		    return {
 		    	avatarPath: avatarPath,
 		    	heroPartial: heroPartial,
 		    	experiencesPartial: experiencesPartial,
-		    	visCommPartial: visCommPartial,
+		    	workFlow: workFlowPartial,
 		    	expDetail: expDetail
 		    };
   		}
