@@ -8,7 +8,7 @@ const WorkExp = (...props) => {
       <h1 className="header font-serif text-4xl border-b mb-5">{work.header}</h1>
       {work.experiences &&
         work.experiences.map((exp, index) => (
-          <div className="exp max-w-2xl block bg-white mb-10" key={index}>
+          <div className="exp max-w-2xl block bg-white mb-6" key={index}>
             <ul className="list-inline">
               <li>
                 <h3 className="font-serif text-2xl">{exp.company}</h3>
