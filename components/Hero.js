@@ -18,21 +18,21 @@ const Hero = (...props) => {
       <div className="text-center">
         <ul className="list-inline">
           <li>
-            <Link href="https://twitter.com/davidpham5" target="_blank">
+            <Link href="https://twitter.com/davidpham5">
               <a>
                 <span className="">Twitter</span>
               </a>
             </Link>
           </li>
           <li>
-            <Link  href="https://github.com/davidpham5" target="_blank">
+            <Link href="https://github.com/davidpham5">
               <a>
                 <span className="">Github</span>
               </a>
             </Link>
           </li>
           <li>
-            <Link href="https://linkedin.com/in/davidmpham" target="_blank">
+            <Link href="https://linkedin.com/in/davidmpham">
               <a>
                 <span className="">Linkedin</span>
               </a>
