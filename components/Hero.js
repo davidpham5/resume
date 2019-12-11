@@ -1,19 +1,19 @@
 import React from "react";
 import Link from "next/link";
-// import avatarPath from '../public/dpham2.JPG'
+import Avatar from '../public/dpham2.jpg'
 
 const Hero = (...props) => {
   return (
-    <div className="md:flex max-w-lg mx-auto block p-2 bg-white rounded-lg shadow-xl bg-white border mt-10">
+    <div className="md:flex max-w-lg mx-auto block p-2 bg-white rounded-lg shadow-lg bg-white border mt-10">
       <div className="text-center p-2 mx-auto">
         <h1 className="font-serif text-4xl text-center">David M. Pham</h1>
         <p className="text-center">
           Front-End Developer. I build useful and beautiful interfaces.
         </p>
-        <div className="rounded-full mx-auto block text-center avatar p-4">
-        <div className="profile-pic round">
-          <img src='' alt="personal profile picture" />
-        </div>
+        <div className="h-64 w-64 mx-auto block text-center avatar mt-4">
+          <div className="profile-pic">
+            <img src={ Avatar } alt="personal profile picture" className="rounded-full" />
+          </div>
         </div>
         <br />
         <div className="">
