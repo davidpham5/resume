@@ -6,13 +6,18 @@ const Nav = () => {
     <nav className="flex flex-row-reverse">
       <ul className="inline-flex">
         <li className="mr-5">
-          <Link href="/home">
+          <Link href="/">
             <a className="text-green-500">Home</a>
           </Link>
         </li>
         <li className="mr-5">
-          <Link href="/">
+          <Link href="/resume">
             <a className="text-green-500">Resume</a>
+          </Link>
+        </li>
+        <li className="mr-5">
+          <Link href="/lab">
+            <a className="text-green-500">Lab</a>
           </Link>
         </li>
       </ul>

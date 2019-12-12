@@ -7,7 +7,7 @@ const linkStyle = {
 };
 
 const Header = () => (
-  <div>
+  <div className="container mx-auto w-4/5 mb-8">
     <Nav />
   </div>
 );

@@ -1,29 +1,12 @@
 import React from 'react';
-import WorkExp from '../components/Work-Experience/WorkExp'
-import WorkFlow from '../components/WorkFlow'
-import Hero from '../components/Hero'
-import Education from '../components/Education'
-import Skills from '../components/Skills'
-import Organizations from '../components/Organizations'
+import Welcome from '../components/Welcome';
 
-
-const Resume = () => {
+function Home() {
   return (
     <div>
-      <Hero className="flex mb-5" />
-      <div className="flex mb-4 container p-12">
-        <div className="w-2/3">
-          <WorkExp />
-          <WorkFlow />
-        </div>
-        <div className="w-1/3">
-          <Education />
-          <Skills />
-          <Organizations />
-        </div>
-      </div>
+      <Welcome />
     </div>
   )
 }
 
-export default Resume;
+export default Home

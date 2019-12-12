@@ -9,7 +9,9 @@ module.exports = withCSS(withImages({
   exportPathMap: function() {
     return {
       '/': { page: '/' },
-      '/home': { page: '/home' }
+      '/home': { page: '/home' },
+      '/resume': { page : '/resume' },
+      '/lab': { page: '/lab' }
     };
   },
   assetPrefix: process.env.NODE_ENV === 'production' ? '' : '',

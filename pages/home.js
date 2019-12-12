@@ -1,7 +1,10 @@
+import React from 'react';
+import Welcome from '../components/Welcome';
+
 function Home() {
   return (
     <div>
-        Welcome to Next.js!
+      <Welcome />
     </div>
   )
 }
