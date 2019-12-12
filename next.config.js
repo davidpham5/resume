@@ -8,8 +8,9 @@ module.exports = withCSS(withImages({
   exportTrailingSlash: true,
   exportPathMap: function() {
     return {
-      '/': { page: '/' }
+      '/': { page: '/' },
+      '/home': { page: '/home' }
     };
   },
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/resume' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/' : '',
 }))

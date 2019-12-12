@@ -5,7 +5,7 @@ import Hero from '../components/Hero'
 import Education from '../components/Education'
 import Skills from '../components/Skills'
 import Organizations from '../components/Organizations'
-import '../components/styles/_main.css'
+
 
 const Resume = () => {
   return (

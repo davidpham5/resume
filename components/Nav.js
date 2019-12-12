@@ -6,7 +6,7 @@ const Nav = () => {
     <nav className="flex flex-row-reverse">
       <ul className="inline-flex">
         <li className="mr-5">
-          <Link href="/index-1">
+          <Link href="/home">
             <a className="text-green-500">Home</a>
           </Link>
         </li>

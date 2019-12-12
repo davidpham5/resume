@@ -10,7 +10,7 @@ const Skills = () => {
       </h1>
        <div className="skills">
          <ul className="pl-4 mt-1 mb-1">
-          {skills && skills.map(skill =>(<li className="list-disc p-1">{ skill }</li>))}
+          {skills && skills.map((skill, index) =>(<li key={index} className="list-disc p-1">{ skill }</li>))}
         </ul>
        </div>
     </div>
