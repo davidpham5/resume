@@ -10,7 +10,7 @@ const Resume = () => {
   return (
     <div>
       <Hero className="flex mb-5" />
-      <div className="flex mb-4 container p-12">
+      <div className="flex mb-4 container md:p-12">
         <div className="w-2/3">
           <WorkExp />
           <WorkFlow />

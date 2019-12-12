@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Nav = () => {
   return (
-    <nav className="flex flex-row-reverse">
+    <nav className="flex justify-center">
       <ul className="inline-flex">
         <li className="mr-5">
           <Link href="/">

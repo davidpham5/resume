@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 const Welcome = () => {
   return (
-    <div className="container mx-auto w-2/5">
+    <div className="container mx-auto sm:w-full md:w-2/5 ">
       <div className="flex justify-center">
         <h1 className="font-sans text-6xl leading-none text-super">Welcome!</h1>
       </div>
