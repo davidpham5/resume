@@ -12,5 +12,5 @@ module.exports = withCSS(withImages({
       '/home': { page: '/home' }
     };
   },
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '' : '',
 }))
