@@ -25,6 +25,7 @@ var linkStyle = {
 
 var Header = function Header() {
   return __jsx("div", {
+    className: "container mx-auto sm:w-full md:w-4/5 mb-8",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 10
@@ -63,7 +64,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 var Nav = function Nav() {
   return __jsx("nav", {
-    className: "flex flex-row-reverse",
+    className: "flex justify-center",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 6
@@ -84,7 +85,7 @@ var Nav = function Nav() {
     },
     __self: this
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-    href: "/home",
+    href: "/",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 9
@@ -105,7 +106,7 @@ var Nav = function Nav() {
     },
     __self: this
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-    href: "/",
+    href: "/resume",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 14
@@ -118,7 +119,28 @@ var Nav = function Nav() {
       lineNumber: 15
     },
     __self: this
-  }, "Resume")))));
+  }, "Resume"))), __jsx("li", {
+    className: "mr-5",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 18
+    },
+    __self: this
+  }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    href: "/lab",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 19
+    },
+    __self: this
+  }, __jsx("a", {
+    className: "text-green-500",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 20
+    },
+    __self: this
+  }, "Lab")))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Nav);
@@ -150,7 +172,7 @@ __webpack_require__.r(__webpack_exports__);
 var _jsxFileName = "/Users/davidpham/Projects/personal/resume/components/Page.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement;
 
- // import './styles/_main.css';
+
 
 var Page =
 /*#__PURE__*/
@@ -167,16 +189,16 @@ function (_Component) {
     key: "render",
     value: function render() {
       return __jsx("div", {
-        className: "p-4 shadow rounded bg-white",
+        className: "p-4 bg-white",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 8
+          lineNumber: 7
         },
         __self: this
       }, __jsx(_Header__WEBPACK_IMPORTED_MODULE_6__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 9
+          lineNumber: 8
         },
         __self: this
       }), this.props.children);
