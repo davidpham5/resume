@@ -6,7 +6,7 @@ const Nav = () => {
     <nav className="flex justify-center">
       <ul className="inline-flex">
         <li className="mr-5">
-          <Link href="/">
+          <Link href="/home">
             <a className="text-green-500">Home</a>
           </Link>
         </li>
