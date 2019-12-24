@@ -1,11 +1,19 @@
-# Resume 
+# Resume
 
-My resume as presented as a web app. Using AngularJS, Grunt, Bower, and Yo stack, illustrates my abilities as a front-end developer.
+My resume as presented as a Single Page Application. Using React, NextJS, and Tailwind, this project illustrates my abilities as a front-end developer.
 
 # How To Run
-1. run `npm install` in terminal for initial setup
-2. Then run `bower install` and next
-3. In `app/app.js` set `publishToGH` in `angular.config()` to false
-4. for a local setup, do `grunt` and then `grunt serve`
-5. Grunt will launch the app on localhost: 9000 in your browser 
+1. run `yarn install` in terminal for initial setup
+2. `yarn dev` and localhost:3000 will run
+
+# To Export
+1. `yarn build`
+2. `yarn export`
+
+# Serve out/ directory
+1.`cd out`
+2. `serve -p 8080`
+
+
+
 
