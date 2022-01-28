@@ -23,11 +23,13 @@ h1, h2, h3, h4 {
 }
 a {
   color: #00e18a;
+  color: $primary;
   text-decoration: none;
 }
 a:hover,
 a:focus {
   color: #48ffb9;
+  color: $primary;
   transition: color 0.3s ease-in-out;
 }
 /* Everything but the jumbotron gets side spacing for mobile first views */

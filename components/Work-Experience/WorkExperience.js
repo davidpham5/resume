@@ -9,7 +9,7 @@ const WorkExperience = {
       id: "washpost",
       start: "January 2018",
       end: "Present",
-      title: "Software Engineer",
+      title: "Senior Software Engineer",
       location: {
         city: "Washington DC",
         state: "DC"

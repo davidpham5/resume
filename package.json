@@ -1,18 +1,17 @@
 {
-  "name": "pham6",
+  "name": "pham7",
   "private": true,
   "devDependencies": {
     "jshint-stylish": "^1.0.0",
     "next-image-element": "^2.0.2"
   },
-  "engines": {
-    "node": ">=0.10.0"
-  },
   "scripts": {
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "export": "next export"
+    "export": "next export",
+    "build:css": "postcss src/assets/tailwind.css -o src/assets/main.css",
+    "watch:css": "postcss src/assets/tailwind.css -o src/assets/main.css"
   },
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
@@ -20,8 +19,17 @@
     "next-images": "^1.2.0",
     "postcss-loader": "^3.0.0",
     "postcss-preset-env": "^6.7.0",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
     "tailwindcss": "^1.1.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
   }
+
 }
