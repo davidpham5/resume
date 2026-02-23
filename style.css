@@ -1,0 +1,281 @@
+/* ── Reset ──────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Base ───────────────────────────────────────────────────── */
+body {
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+  color: #1a1a1a;
+  background: #fafaf8;
+  padding: 2.5rem 1.25rem;
+}
+
+.container {
+  max-width: 880px;
+  margin: 0 auto;
+  background: #fff;
+  border: 1px solid #e8e5e0;
+  border-radius: 4px;
+  padding: 2.5rem 3rem;
+}
+
+a {
+  color: #1a5fa8;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+a:hover {
+  color: #0d3f75;
+}
+
+p {
+  margin: 0;
+}
+
+/* ── Header ─────────────────────────────────────────────────── */
+header {
+  text-align: center;
+  margin-bottom: 1.6rem;
+}
+
+header h1 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: #111;
+  margin-bottom: 0.4rem;
+}
+
+header .header-meta {
+  font-size: 0.95rem;
+  font-weight: 400;
+  margin-bottom: 0.2rem;
+  color: #444;
+  line-height: 1.6;
+}
+
+header .header-meta a {
+  color: #1a5fa8;
+}
+
+header hr {
+  border: none;
+  border-top: 2px solid #1a1a1a;
+  margin-top: 1rem;
+}
+
+/* ── Section rows ───────────────────────────────────────────── */
+.section-title-row {
+  margin-top: 1.8rem;
+  margin-bottom: 0.7rem;
+}
+
+h4.section-title {
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #555;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0.35rem;
+  display: block;
+  width: 100%;
+}
+
+/* ── Item row (date + content) ──────────────────────────────── */
+.item {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 0 1.25rem;
+  margin-bottom: 1.4rem;
+}
+
+.item-date {
+  font-size: 0.83rem;
+  color: #666;
+  padding-top: 0.12rem;
+  line-height: 1.5;
+  font-variant-numeric: tabular-nums;
+}
+
+.item-content {
+}
+
+/* ── Job / company block ────────────────────────────────────── */
+.job-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.item-title {
+  font-family: "Inter", system-ui, sans-serif;
+  font-style: normal;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #111;
+}
+
+.location {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.jobtitle {
+  font-family: "Inter", system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: #333;
+  margin-top: 0.1rem;
+  margin-bottom: 0.4rem;
+}
+
+/* ── Bullet lists ───────────────────────────────────────────── */
+ul.jobaccomp {
+  list-style-type: disc;
+  list-style-position: outside;
+  margin-left: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+ul.jobaccomp li {
+  margin-bottom: 0.4rem;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #222;
+}
+
+ul.jobaccomp ul {
+  margin-top: 0.4rem;
+  margin-bottom: 0.4rem;
+  padding-left: 1.2rem;
+}
+
+ul.jobaccomp ul li {
+  list-style-type: circle;
+  margin-bottom: 0.25rem;
+}
+
+/* ── Promoted label ─────────────────────────────────────────── */
+.promoted {
+  margin-left: 1.4rem;
+  margin-top: 0.4rem;
+  font-size: 0.88rem;
+}
+
+.promoted .jobtitle {
+  font-size: 0.88rem;
+}
+
+/* ── Summary ────────────────────────────────────────────────── */
+.summary-text {
+  font-size: 0.97rem;
+  line-height: 1.75;
+  margin-top: 0.2rem;
+  color: #222;
+}
+
+/* ── Skills ─────────────────────────────────────────────────── */
+.skills-grid {
+  margin-top: 0.2rem;
+}
+
+.skill-row {
+  font-size: 0.93rem;
+  margin-bottom: 0.45rem;
+  line-height: 1.6;
+  color: #222;
+}
+
+.skill-row strong {
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 0.83rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: #111;
+}
+
+/* ── Projects ───────────────────────────────────────────────── */
+.project {
+  margin-bottom: 0.9rem;
+}
+
+.project p {
+  font-size: 0.95rem;
+  margin-bottom: 0.2rem;
+  line-height: 1.65;
+}
+
+.project-name {
+  font-weight: 600;
+  color: #111;
+}
+
+.project-desc {
+  color: #444;
+}
+
+/* ── Education ──────────────────────────────────────────────── */
+.edu-degree {
+  font-family: "Inter", system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #111;
+}
+
+.edu-school {
+  font-style: italic;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.edu-date {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* ── Print ──────────────────────────────────────────────────── */
+@media print {
+  body {
+    padding: 0;
+    font-size: 12px;
+    background: #fff;
+  }
+  .container {
+    max-width: 100%;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+  }
+  a {
+    text-decoration: none;
+    color: #111;
+  }
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .container {
+    padding: 1.5rem 1.25rem;
+  }
+  .item {
+    grid-template-columns: 1fr;
+  }
+  .item-date {
+    font-size: 0.8rem;
+    color: #666;
+    margin-bottom: 0.25rem;
+  }
+}
