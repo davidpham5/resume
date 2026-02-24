@@ -1,0 +1,36 @@
+---
+import { RESUME } from '../../components/Work-Experience/resume-data.js';
+
+const { work } = RESUME;
+
+function formatDate(dateStr: string): string {
+  if (!dateStr) return 'Present';
+  const [year, month] = dateStr.split('-');
+  const date = new Date(parseInt(year), parseInt(month) - 1);
+  return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short' });
+}
+---
+
+<div class="mt-8">
+  <h2 class="font-serif text-4xl border-b mb-5">Work Experience</h2>
+
+  {
+    work.map((job) => (
+      <div class="exp max-w-2xl block bg-white mb-10">
+        <h3 class="font-serif text-2xl">{job.name}</h3>
+        <div class="flex flex-wrap gap-3 mt-1 mb-3 items-center">
+          <span class="font-bold">{job.position}</span>
+          <span class="text-sm text-gray-600">
+            {formatDate(job.startDate)} – {formatDate(job.endDate)}
+          </span>
+          <span class="text-gray-600 text-sm">{job.location}</span>
+        </div>
+        <ul class="list-disc pl-5 space-y-2">
+          {job.highlights.map((highlight) => (
+            <li class="text-sm leading-relaxed text-gray-800">{highlight}</li>
+          ))}
+        </ul>
+      </div>
+    ))
+  }
+</div>

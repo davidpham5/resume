@@ -1,0 +1,44 @@
+---
+import { RESUME } from '../../components/Work-Experience/resume-data.js';
+
+const { basics } = RESUME;
+---
+
+<div class="md:flex max-w-lg mx-auto block p-2 bg-white rounded-lg shadow-lg border mt-10">
+  <div class="text-center p-2 mx-auto">
+    <h1 class="font-serif text-4xl text-center">{basics.name}</h1>
+    <p class="text-center font-medium mt-1">{basics.label}</p>
+    <p class="text-center text-gray-500 text-sm mt-1">
+      {basics.location.city}, {basics.location.region}
+    </p>
+
+    <div class="h-64 w-64 mx-auto block text-center mt-4">
+      <img
+        src={basics.avatarURL || '/dpham2.JPG'}
+        alt="David M. Pham profile picture"
+        class="rounded-full w-full h-full object-cover"
+      />
+    </div>
+
+    <p class="text-gray-600 text-sm mt-4 max-w-sm mx-auto leading-relaxed">
+      {basics.email}
+    </p>
+
+    <ul class="inline-flex mt-3">
+      {
+        basics.profiles.map((profile) => (
+          <li>
+            <a
+              href={profile.url}
+              class="text-green-500 hover:text-green-700"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="px-4 py-2 m-2">{profile.network}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</div>

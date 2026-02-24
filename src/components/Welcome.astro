@@ -1,0 +1,66 @@
+---
+import { RESUME } from '../../components/Work-Experience/resume-data.js';
+
+const { basics } = RESUME;
+---
+
+<div class="container mx-auto sm:w-full md:w-2/5">
+  <div class="flex justify-center">
+    <h1 class="font-sans text-6xl leading-none text-super">Welcome!</h1>
+  </div>
+  <div class="flex justify-center mb-8">
+    <h2 class="text-lg font-thin">I believe in you.</h2>
+  </div>
+
+  <section id="about" class="row">
+    <div class="flex flex-col justify-center">
+      <h2 class="font-serif text-4xl mb-3">About Me</h2>
+      <p class="italic font-thin text-2xl">{basics.aboutMe}</p>
+      <p class="mt-4 leading-normal text-lg">
+        <span class="drop">I</span>t's the same instinct that draws me to the people whose work I keep returning to.
+      </p>
+      <p class="mt-4 leading-normal text-lg">
+        Dieter Rams'
+        <a
+          href="https://www.vitsoe.com/gb/about/good-design"
+          class="text-green-500"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ten principles for good design
+        </a> read less like an aesthetic framework and more like an ethical one. Good design is
+        honest — it doesn't try to be more than it is. I come back to his principles whenever a
+        problem starts piling on complexity it doesn't need.
+      </p>
+      <p class="mt-4 leading-normal text-lg">
+        <a
+          href="http://jasonsantamaria.com/about/"
+          class="text-green-500"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Jason Santa Maria
+        </a> showed me that typography is never decoration — it's the first signal of whether you
+        respect your reader's time. His attention to how words sit on a page changed how I think
+        about every interface I work on.
+      </p>
+      <p class="mt-4 leading-normal text-lg">
+        <a
+          href="http://www.jensimmons.com/"
+          class="text-green-500"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Jen Simmons
+        </a> has been doing some of the most important work in web standards and CSS layout for
+        years. She makes the case that the web can be expressive and structurally sound at the same
+        time. A personal hero.
+      </p>
+      <p class="mt-4 leading-normal text-lg mb-24">
+        My <a href="/resume" class="text-green-500">resume</a> is built as an Astro app — something
+        as simple as a resume felt like the right place to try and get the type and engineering both
+        right. When you're done looking around, let's get some coffee.
+      </p>
+    </div>
+  </section>
+</div>

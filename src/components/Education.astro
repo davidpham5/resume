@@ -1,0 +1,22 @@
+---
+import { RESUME } from '../../components/Work-Experience/resume-data.js';
+
+const { education } = RESUME;
+---
+
+<div class="mt-8 pl-10">
+  <h2 class="font-serif text-4xl border-b mb-2">Education</h2>
+
+  {
+    education.map((edu) => (
+      <div class="mt-3">
+        <h3 class="text-xl font-serif">{edu.institution}</h3>
+        <ul class="flex flex-wrap gap-2 mt-1">
+          <li class="font-bold">{edu.studyType}</li>
+          <li class="text-gray-700">{edu.area}</li>
+          <li class="text-gray-700">{edu.endDate}</li>
+        </ul>
+      </div>
+    ))
+  }
+</div>

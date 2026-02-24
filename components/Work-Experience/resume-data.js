@@ -1,7 +1,7 @@
 // Resume data following the JSON Resume standard: https://jsonresume.org/schema/
 // Edit this file to update your resume content.
 
-const RESUME = {
+export const RESUME = {
   $schema:
     "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
   basics: {
@@ -10,11 +10,15 @@ const RESUME = {
     email: "davidpham5@gmail.com",
     summary:
       "Senior software engineer with 12+ years of experience and 3+ years focused on privacy engineering at The Washington Post, a top-50 global website. Led the end-to-end integration of the IAB Global Privacy Platform (GPP) into production without any significant impact to time-to-first-ad performance—demonstrating the ability to ship privacy-critical features at scale while meeting stringent performance standards. Architected a centralized Privacy API serving 30+ jurisdictions. Experienced writing design documents, conducting privacy reviews, building proofs of concept, and addressing technical debt in privacy-sensitive codebases. Contributing member of W3C Privacy Working Group. Comfortable working across JavaScript, TypeScript, PHP, and Node.js in large-scale web applications. Passionate about mission-driven organizations and building performant systems that protect users at scale.",
+    aboutMe:
+      "My path into web development is a bit unusual. I studied history and sociology before teaching myself to code, and at the time it felt like a detour. Looking back, those disciplines were actually the foundation — they trained me to think about systems in terms of people: who they serve, what they leave out, and whether they're honest about what they do. That instinct follows me into everything I build.",
     location: {
       city: "Silver Spring",
       region: "MD",
       countryCode: "US",
     },
+    avatarURL:
+      "https://res.cloudinary.com/dpham5/image/upload/v1771887530/Avatars/IMG_0459_d3zzn8.jpg",
     profiles: [
       {
         network: "GitHub",
