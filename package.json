@@ -1,6 +1,6 @@
 {
   "name": "pham7",
-  "private": true,
+  "private": false,
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
