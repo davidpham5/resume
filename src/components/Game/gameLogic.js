@@ -5,25 +5,72 @@
 // Letter frequency (Scrabble-weighted)
 // ---------------------------------------------------------------------------
 const LETTER_POOL = [
-  ['A', 9], ['B', 2], ['C', 2], ['D', 4], ['E', 12],
-  ['F', 2], ['G', 3], ['H', 2], ['I', 9], ['J', 1],
-  ['K', 1], ['L', 4], ['M', 2], ['N', 6], ['O', 8],
-  ['P', 2], ['Q', 1], ['R', 6], ['S', 4], ['T', 6],
-  ['U', 4], ['V', 2], ['W', 2], ['X', 1], ['Y', 2],
-  ['Z', 1],
+  ["A", 9],
+  ["B", 2],
+  ["C", 2],
+  ["D", 4],
+  ["E", 12],
+  ["F", 2],
+  ["G", 3],
+  ["H", 2],
+  ["I", 9],
+  ["J", 1],
+  ["K", 1],
+  ["L", 4],
+  ["M", 2],
+  ["N", 6],
+  ["O", 8],
+  ["P", 2],
+  ["Q", 1],
+  ["R", 6],
+  ["S", 4],
+  ["T", 6],
+  ["U", 4],
+  ["V", 2],
+  ["W", 2],
+  ["X", 1],
+  ["Y", 2],
+  ["Z", 1],
 ];
+
+export const LETTER_FREQUENCY_ORDER = [...LETTER_POOL]
+  .sort((a, b) => b[1] - a[1])
+  .map(([letter]) => letter);
 
 // ---------------------------------------------------------------------------
 // Letter point values (Scrabble standard)
 // Locked tiles are worth 2× their base value — locking a Q = 20 pts.
 // ---------------------------------------------------------------------------
 export const LETTER_VALUES = {
-  A:1, B:3, C:3, D:2, E:1, F:4, G:2, H:4, I:1, J:8,
-  K:5, L:1, M:3, N:1, O:1, P:3, Q:10, R:1, S:1, T:1,
-  U:1, V:4, W:4, X:8, Y:4, Z:10,
+  A: 1,
+  B: 3,
+  C: 3,
+  D: 2,
+  E: 1,
+  F: 4,
+  G: 2,
+  H: 4,
+  I: 1,
+  J: 8,
+  K: 5,
+  L: 1,
+  M: 3,
+  N: 1,
+  O: 1,
+  P: 3,
+  Q: 10,
+  R: 1,
+  S: 1,
+  T: 1,
+  U: 1,
+  V: 4,
+  W: 4,
+  X: 8,
+  Y: 4,
+  Z: 10,
 };
 
-export const VOWELS = new Set(['A', 'E', 'I', 'O', 'U']);
+export const VOWELS = new Set(["A", "E", "I", "O", "U"]);
 
 // ---------------------------------------------------------------------------
 // generateBoard — returns string[25] of uppercase letters
@@ -78,10 +125,10 @@ export function isCongruent(selectedIndices) {
 // isLocked — tile is locked when owned and all neighbors owned by same player
 // ---------------------------------------------------------------------------
 export function isLocked(index, ownership) {
-  if (ownership[index] === 'none') return false;
+  if (ownership[index] === "none") return false;
   const owner = ownership[index];
   const neighbors = getNeighborIndices(index);
-  return neighbors.every(n => ownership[n] === owner);
+  return neighbors.every((n) => ownership[n] === owner);
 }
 
 // ---------------------------------------------------------------------------
@@ -106,30 +153,42 @@ export function applyWord(selectedIndices, currentPlayer, ownership) {
 // validateWord — 5-step fail-fast validation
 // Returns { valid: boolean, reason: string }
 // ---------------------------------------------------------------------------
-export function validateWord(word, selectedIndices, board, ownership, wordSet, currentPlayer) {
+export function validateWord(
+  word,
+  selectedIndices,
+  board,
+  ownership,
+  wordSet,
+  currentPlayer,
+) {
   if (word.length < 2) {
-    return { valid: false, reason: 'Word must be at least 2 letters.' };
+    return { valid: false, reason: "Word must be at least 2 letters." };
   }
   if (!wordSet.has(word.toLowerCase())) {
     return { valid: false, reason: `"${word}" not found in word list.` };
   }
   // Verify the selected tiles actually spell the word
-  const spelled = selectedIndices.map(i => board[i]).join('');
+  const spelled = selectedIndices.map((i) => board[i]).join("");
   if (spelled !== word) {
-    return { valid: false, reason: 'Selected tiles don\'t spell that word.' };
+    return { valid: false, reason: "Selected tiles don't spell that word." };
   }
   // Must include at least one tile not already owned by current player
-  const hasNewTile = selectedIndices.some(i => ownership[i] !== currentPlayer);
+  const hasNewTile = selectedIndices.some(
+    (i) => ownership[i] !== currentPlayer,
+  );
   if (!hasNewTile) {
-    return { valid: false, reason: 'Must include at least one tile you don\'t own.' };
+    return {
+      valid: false,
+      reason: "Must include at least one tile you don't own.",
+    };
   }
   // Cannot steal a locked opponent tile
   for (const i of selectedIndices) {
     if (ownership[i] !== currentPlayer && isLocked(i, ownership)) {
-      return { valid: false, reason: 'Cannot steal a locked tile.' };
+      return { valid: false, reason: "Cannot steal a locked tile." };
     }
   }
-  return { valid: true, reason: '' };
+  return { valid: true, reason: "" };
 }
 
 // ---------------------------------------------------------------------------
@@ -137,7 +196,12 @@ export function validateWord(word, selectedIndices, board, ownership, wordSet, c
 // Winner determined by weighted point total, not tile count.
 // Locked tiles are worth 2× their base letter value.
 // ---------------------------------------------------------------------------
-export function checkWinCondition(ownership, locked, board, bonusPoints = { player: 0, computer: 0 }) {
+export function checkWinCondition(
+  ownership,
+  locked,
+  board,
+  bonusPoints = { player: 0, computer: 0 },
+) {
   if (!locked.every(Boolean)) {
     return { gameOver: false, winner: null };
   }
@@ -145,10 +209,15 @@ export function checkWinCondition(ownership, locked, board, bonusPoints = { play
   let computerScore = bonusPoints.computer;
   for (let i = 0; i < 25; i++) {
     const val = (LETTER_VALUES[board[i]] || 1) * (locked[i] ? 2 : 1);
-    if (ownership[i] === 'player') playerScore += val;
-    else if (ownership[i] === 'computer') computerScore += val;
+    if (ownership[i] === "player") playerScore += val;
+    else if (ownership[i] === "computer") computerScore += val;
   }
-  const winner = playerScore > computerScore ? 'player' : computerScore > playerScore ? 'computer' : 'tie';
+  const winner =
+    playerScore > computerScore
+      ? "player"
+      : computerScore > playerScore
+        ? "computer"
+        : "tie";
   return { gameOver: true, winner };
 }
 
@@ -158,8 +227,14 @@ export function checkWinCondition(ownership, locked, board, bonusPoints = { play
 export function swapTiles(board, ownership, fromIndex, toIndex) {
   const newBoard = [...board];
   const newOwnership = [...ownership];
-  [newBoard[fromIndex], newBoard[toIndex]] = [newBoard[toIndex], newBoard[fromIndex]];
-  [newOwnership[fromIndex], newOwnership[toIndex]] = [newOwnership[toIndex], newOwnership[fromIndex]];
+  [newBoard[fromIndex], newBoard[toIndex]] = [
+    newBoard[toIndex],
+    newBoard[fromIndex],
+  ];
+  [newOwnership[fromIndex], newOwnership[toIndex]] = [
+    newOwnership[toIndex],
+    newOwnership[fromIndex],
+  ];
   const newLocked = computeAllLocked(newOwnership);
   return { board: newBoard, ownership: newOwnership, locked: newLocked };
 }
@@ -174,7 +249,7 @@ function buildAvailableMap(board, ownership, locked) {
   const map = new Map();
   for (let i = 0; i < 25; i++) {
     // Skip tiles that are locked by the opponent
-    if (locked[i] && ownership[i] === 'player') continue;
+    if (locked[i] && ownership[i] === "player") continue;
     const letter = board[i];
     if (!map.has(letter)) map.set(letter, []);
     map.get(letter).push(i);
@@ -202,13 +277,15 @@ function assignIndices(word, availableMap, ownership, board) {
 
   for (const ch of word) {
     const candidates = availableMap.get(ch) || [];
-    const sorted = [...candidates].filter(i => !used.has(i)).sort((a, b) => {
-      const rank = (o) => o === 'player' ? 0 : o === 'none' ? 1 : 2;
-      const tierDiff = rank(ownership[a]) - rank(ownership[b]);
-      if (tierDiff !== 0) return tierDiff;
-      // Within same tier, prefer higher letter value
-      return (LETTER_VALUES[board[b]] || 1) - (LETTER_VALUES[board[a]] || 1);
-    });
+    const sorted = [...candidates]
+      .filter((i) => !used.has(i))
+      .sort((a, b) => {
+        const rank = (o) => (o === "player" ? 0 : o === "none" ? 1 : 2);
+        const tierDiff = rank(ownership[a]) - rank(ownership[b]);
+        if (tierDiff !== 0) return tierDiff;
+        // Within same tier, prefer higher letter value
+        return (LETTER_VALUES[board[b]] || 1) - (LETTER_VALUES[board[a]] || 1);
+      });
     if (sorted.length === 0) return null;
     const chosen = sorted[0];
     result.push(chosen);
@@ -222,14 +299,15 @@ function scoreWord(word, indices, board, ownership, locked) {
   let score = word.length * 0.5;
   for (const i of indices) {
     const val = LETTER_VALUES[board[i]] || 1;
-    if (ownership[i] === 'player') score += val * 2; // steal: gain val + opponent loses val
-    else if (ownership[i] === 'none') score += val;
+    if (ownership[i] === "player")
+      score += val * 2; // steal: gain val + opponent loses val
+    else if (ownership[i] === "none") score += val;
   }
   // Locking bonus: a newly locked tile is worth double, so lock = extra val
-  const simOwnership = applyWord(indices, 'computer', ownership);
+  const simOwnership = applyWord(indices, "computer", ownership);
   const simLocked = computeAllLocked(simOwnership);
   for (let i = 0; i < 25; i++) {
-    if (simLocked[i] && !locked[i] && simOwnership[i] === 'computer') {
+    if (simLocked[i] && !locked[i] && simOwnership[i] === "computer") {
       score += (LETTER_VALUES[board[i]] || 1) * 2;
     }
   }
@@ -238,16 +316,30 @@ function scoreWord(word, indices, board, ownership, locked) {
 }
 
 // ---------------------------------------------------------------------------
-// findAIWord — greedy scored word search
+// findAIWord — easy-mode word search: sample a random subset each turn
 // Returns { word: string, indices: number[] } or null
 // ---------------------------------------------------------------------------
-export function findAIWord(board, ownership, locked, wordSet, playedWords = new Set()) {
+export function findAIWord(
+  board,
+  ownership,
+  locked,
+  wordSet,
+  playedWords = new Set(),
+) {
   const availableMap = buildAvailableMap(board, ownership, locked);
+  const words = Array.isArray(wordSet) ? wordSet : Array.from(wordSet);
+  const sampleSize = 80;
+  const maxAttempts = 400;
+
   let bestResult = null;
   let bestScore = -1;
+  let attempts = 0;
+  let samples = 0;
 
-  for (const word of wordSet) {
-    if (word.length < 2 || word.length > 10) continue;
+  while (samples < sampleSize && attempts < maxAttempts) {
+    attempts += 1;
+    const word = words[Math.floor(Math.random() * words.length)];
+    if (!word || word.length < 2 || word.length > 6) continue;
     if (playedWords.has(word)) continue;
 
     const upper = word.toUpperCase();
@@ -256,11 +348,17 @@ export function findAIWord(board, ownership, locked, wordSet, playedWords = new 
     const indices = assignIndices(upper, availableMap, ownership, board);
     if (!indices) continue;
 
-    // Must include at least one non-AI tile
-    const hasNewTile = indices.some(i => ownership[i] !== 'computer');
+    const hasNewTile = indices.some((i) => ownership[i] !== "computer");
     if (!hasNewTile) continue;
 
-    const score = scoreWord(word, indices, board, ownership, locked);
+    samples += 1;
+
+    // Simple scoring: prefer shorter words and mild steal bonus (no lock hunting)
+    let score = word.length;
+    for (const i of indices) {
+      if (ownership[i] === "player") score += 1;
+    }
+
     if (score > bestScore) {
       bestScore = score;
       bestResult = { word: upper, indices };

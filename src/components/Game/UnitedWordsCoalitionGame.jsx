@@ -12,8 +12,7 @@ import {
   validateWord,
   checkWinCondition,
   findAIWord,
-  swapTiles,
-  VOWELS,
+  LETTER_FREQUENCY_ORDER,
   isCongruent,
 } from "./gameLogic.js";
 
@@ -32,11 +31,11 @@ function makeInitialState() {
     currentWord: "",
     message: "Your turn — tap tiles to spell a word!",
     playedWords: new Set(),
-    // Vowel swap mechanic
-    swapsRemaining: 3,
-    swapMode: false,
-    swapSourceIndex: null,
-    swappedVowelPositions: new Set(),
+    // Letter choice mechanic
+    letterChoiceMode: false,
+    pendingLetter: null,
+    letterChoices: 0,
+    flipTally: 0,
     // Chain bonus points (congruent words)
     bonusPoints: { player: 0, computer: 0 },
   };
@@ -65,10 +64,10 @@ export default function UnitedWordsCoalitionGame() {
     currentWord,
     message,
     playedWords,
-    swapsRemaining,
-    swapMode,
-    swapSourceIndex,
-    swappedVowelPositions,
+    letterChoiceMode,
+    pendingLetter,
+    letterChoices,
+    flipTally,
     bonusPoints,
   } = state;
 
@@ -119,6 +118,9 @@ export default function UnitedWordsCoalitionGame() {
       return;
     }
 
+    const flipsThisTurn = selectedIndices.filter(
+      (i) => ownership[i] !== "player",
+    ).length;
     const congruent = isCongruent(selectedIndices);
     const newBonusPoints = congruent
       ? { ...bonusPoints, player: bonusPoints.player + 1 }
@@ -126,24 +128,38 @@ export default function UnitedWordsCoalitionGame() {
 
     const newOwnership = applyWord(selectedIndices, "player", ownership);
     const newLocked = computeAllLocked(newOwnership);
-    const winCheck = checkWinCondition(newOwnership, newLocked, board, newBonusPoints);
+    const winCheck = checkWinCondition(
+      newOwnership,
+      newLocked,
+      board,
+      newBonusPoints,
+    );
     const newPlayedWords = new Set(playedWords).add(currentWord.toLowerCase());
 
-    setState((prev) => ({
-      ...prev,
-      ownership: newOwnership,
-      locked: newLocked,
-      selectedIndices: [],
-      currentWord: "",
-      bonusPoints: newBonusPoints,
-      turn: winCheck.gameOver ? "player" : "computer",
-      gameOver: winCheck.gameOver,
-      winner: winCheck.winner,
-      message: winCheck.gameOver
-        ? `Game over! You played: ${currentWord}`
-        : `You played: ${currentWord}${congruent ? " +1 chain!" : ""}`,
-      playedWords: newPlayedWords,
-    }));
+    setState((prev) => {
+      const newFlipTally = prev.flipTally + flipsThisTurn;
+      const earnedChoices =
+        Math.floor(newFlipTally / 5) - Math.floor(prev.flipTally / 5);
+      const newLetterChoices = Math.min(3, prev.letterChoices + earnedChoices);
+
+      return {
+        ...prev,
+        ownership: newOwnership,
+        locked: newLocked,
+        selectedIndices: [],
+        currentWord: "",
+        bonusPoints: newBonusPoints,
+        flipTally: newFlipTally,
+        letterChoices: newLetterChoices,
+        turn: winCheck.gameOver ? "player" : "computer",
+        gameOver: winCheck.gameOver,
+        winner: winCheck.winner,
+        message: winCheck.gameOver
+          ? `Game over! You played: ${currentWord}`
+          : `You played: ${currentWord}${congruent ? " +1 chain!" : ""}`,
+        playedWords: newPlayedWords,
+      };
+    });
   }, [
     gameOver,
     turn,
@@ -171,110 +187,75 @@ export default function UnitedWordsCoalitionGame() {
   }, []);
 
   // -------------------------------------------------------------------------
-  // Swap mechanic — enter / cancel swap mode
+  // Letter choice — earnable tile replacement
   // -------------------------------------------------------------------------
-  const handleEnterSwapMode = useCallback(() => {
-    if (gameOver || turn !== "player" || swapsRemaining <= 0) return;
+  const handleEnterLetterChoice = useCallback(() => {
+    if (gameOver || turn !== "player" || letterChoices <= 0) return;
     setState((prev) => ({
       ...prev,
-      swapMode: true,
-      swapSourceIndex: null,
+      letterChoiceMode: true,
+      pendingLetter: null,
       selectedIndices: [],
       currentWord: "",
-      message: "Select a vowel to move.",
+      message: "Choose a letter, then tap a non-locked tile to replace.",
     }));
-  }, [gameOver, turn, swapsRemaining]);
+  }, [gameOver, turn, letterChoices]);
 
-  const handleCancelSwap = useCallback(() => {
+  const handleSelectLetter = useCallback(
+    (letter) => {
+      if (!letterChoiceMode || gameOver || turn !== "player") return;
+      setState((prev) => ({
+        ...prev,
+        pendingLetter: letter,
+        message: `Select a non-locked tile to replace with ${letter}.`,
+      }));
+    },
+    [letterChoiceMode, gameOver, turn],
+  );
+
+  const handleCancelLetterChoice = useCallback(() => {
     setState((prev) => ({
       ...prev,
-      swapMode: false,
-      swapSourceIndex: null,
+      letterChoiceMode: false,
+      pendingLetter: null,
       message: "Your turn — tap tiles to spell a word!",
     }));
   }, []);
 
-  // -------------------------------------------------------------------------
-  // Swap tile click — two-phase: pick vowel source, then destination
-  // -------------------------------------------------------------------------
-  const handleSwapTileClick = useCallback(
+  const handleLetterChoiceTileClick = useCallback(
     (index) => {
-      if (!swapMode || gameOver || turn !== "player") return;
-
-      if (swapSourceIndex === null) {
-        if (!VOWELS.has(board[index])) {
-          setState((prev) => ({
-            ...prev,
-            message: "Pick a vowel — A, E, I, O, or U.",
-          }));
-          return;
-        }
-        if (swappedVowelPositions.has(index)) {
-          setState((prev) => ({
-            ...prev,
-            message: "That vowel has already been moved once.",
-          }));
-          return;
-        }
+      if (!letterChoiceMode || gameOver || turn !== "player") return;
+      if (!pendingLetter) {
         setState((prev) => ({
           ...prev,
-          swapSourceIndex: index,
-          message: `Moving ${board[index]} — select any tile to swap with.`,
+          message: "Select a letter first.",
         }));
-      } else {
-        if (index === swapSourceIndex) {
-          setState((prev) => ({
-            ...prev,
-            swapSourceIndex: null,
-            message: "Select a vowel to move.",
-          }));
-          return;
-        }
-
-        const {
-          board: newBoard,
-          ownership: newOwnership,
-          locked: newLocked,
-        } = swapTiles(board, ownership, swapSourceIndex, index);
-
-        const newSwapped = new Set(swappedVowelPositions);
-        if (newSwapped.has(index)) {
-          newSwapped.delete(index);
-          newSwapped.add(swapSourceIndex);
-        }
-        newSwapped.add(index);
-
-        const winCheck = checkWinCondition(newOwnership, newLocked, newBoard, bonusPoints);
-        const movedLetter = board[swapSourceIndex];
-
-        setState((prev) => ({
-          ...prev,
-          board: newBoard,
-          ownership: newOwnership,
-          locked: newLocked,
-          swapMode: false,
-          swapSourceIndex: null,
-          swapsRemaining: prev.swapsRemaining - 1,
-          swappedVowelPositions: newSwapped,
-          turn: winCheck.gameOver ? "player" : "computer",
-          gameOver: winCheck.gameOver,
-          winner: winCheck.winner,
-          message: winCheck.gameOver
-            ? `Game over! You moved ${movedLetter}.`
-            : `Moved ${movedLetter} — Computer's turn!`,
-        }));
+        return;
       }
+      if (locked[index]) {
+        setState((prev) => ({
+          ...prev,
+          message: "Choose a tile that isn't locked.",
+        }));
+        return;
+      }
+
+      setState((prev) => {
+        const newBoard = [...prev.board];
+        newBoard[index] = prev.pendingLetter;
+        return {
+          ...prev,
+          board: newBoard,
+          letterChoiceMode: false,
+          pendingLetter: null,
+          letterChoices: Math.max(0, prev.letterChoices - 1),
+          selectedIndices: [],
+          currentWord: "",
+          message: `Replaced tile with ${prev.pendingLetter}.`,
+        };
+      });
     },
-    [
-      swapMode,
-      gameOver,
-      turn,
-      swapSourceIndex,
-      board,
-      ownership,
-      swappedVowelPositions,
-      bonusPoints,
-    ],
+    [letterChoiceMode, gameOver, turn, locked, pendingLetter],
   );
 
   // -------------------------------------------------------------------------
@@ -302,8 +283,15 @@ export default function UnitedWordsCoalitionGame() {
 
       const newOwnership = applyWord(result.indices, "computer", ownership);
       const newLocked = computeAllLocked(newOwnership);
-      const winCheck = checkWinCondition(newOwnership, newLocked, board, newBonusPoints);
-      const newPlayedWords = new Set(playedWords).add(result.word.toLowerCase());
+      const winCheck = checkWinCondition(
+        newOwnership,
+        newLocked,
+        board,
+        newBonusPoints,
+      );
+      const newPlayedWords = new Set(playedWords).add(
+        result.word.toLowerCase(),
+      );
 
       setState((prev) => ({
         ...prev,
@@ -321,9 +309,17 @@ export default function UnitedWordsCoalitionGame() {
     }, 900);
 
     return () => clearTimeout(timer);
-  }, [turn, gameOver, wordSet, board, ownership, locked, playedWords, bonusPoints]);
-
-  const isSwapSourceSelected = swapMode && swapSourceIndex !== null;
+  }, [
+    turn,
+    gameOver,
+    wordSet,
+    board,
+    ownership,
+    locked,
+    playedWords,
+    bonusPoints,
+  ]);
+  const flipsToNextChoice = flipTally % 5 === 0 ? 5 : 5 - (flipTally % 5);
 
   // -------------------------------------------------------------------------
   // Loading / error states
@@ -332,7 +328,9 @@ export default function UnitedWordsCoalitionGame() {
     return (
       <div className="text-center py-12 text-gray-500">
         <p>Failed to load the dictionary.</p>
-        <p className="text-sm mt-1">Check your connection and refresh the page.</p>
+        <p className="text-sm mt-1">
+          Check your connection and refresh the page.
+        </p>
       </div>
     );
   }
@@ -363,12 +361,11 @@ export default function UnitedWordsCoalitionGame() {
         board={board}
         ownership={ownership}
         locked={locked}
-        selectedIndices={swapMode ? [] : selectedIndices}
-        onTileClick={swapMode ? handleSwapTileClick : handleTileClick}
-        swapMode={swapMode}
-        swapSourceIndex={swapSourceIndex}
-        swapSourceSelected={isSwapSourceSelected}
-        swappedVowelPositions={swappedVowelPositions}
+        selectedIndices={letterChoiceMode ? [] : selectedIndices}
+        onTileClick={
+          letterChoiceMode ? handleLetterChoiceTileClick : handleTileClick
+        }
+        letterChoiceMode={letterChoiceMode}
       />
       <WordBuilder
         currentWord={currentWord}
@@ -378,31 +375,40 @@ export default function UnitedWordsCoalitionGame() {
         message={message}
         turn={turn}
         gameOver={gameOver}
-        swapMode={swapMode}
-        swapsRemaining={swapsRemaining}
-        onEnterSwap={handleEnterSwapMode}
-        onCancelSwap={handleCancelSwap}
+        letterChoiceMode={letterChoiceMode}
+        pendingLetter={pendingLetter}
+        letterChoices={letterChoices}
+        flipsToNextChoice={flipsToNextChoice}
+        letterOptions={LETTER_FREQUENCY_ORDER}
+        onEnterLetterChoice={handleEnterLetterChoice}
+        onCancelLetterChoice={handleCancelLetterChoice}
+        onSelectLetter={handleSelectLetter}
       />
 
       {/* Legend */}
-      <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs text-gray-400">
+      <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs uwc-score-meta">
         <span className="flex items-center gap-1">
-          <span className="inline-block w-3 h-3 rounded bg-blue-400" /> You
+          <span className="inline-block w-3 h-3 rounded uwc-tile-player" /> You
         </span>
         <span className="flex items-center gap-1">
-          <span className="inline-block w-3 h-3 rounded bg-blue-700" /> You (locked)
+          <span className="inline-block w-3 h-3 rounded uwc-tile-player-locked" />{" "}
+          You (locked)
         </span>
         <span className="flex items-center gap-1">
-          <span className="inline-block w-3 h-3 rounded bg-red-400" /> Computer
+          <span className="inline-block w-3 h-3 rounded uwc-tile-computer" />{" "}
+          Computer
         </span>
         <span className="flex items-center gap-1">
-          <span className="inline-block w-3 h-3 rounded bg-red-700" /> Computer (locked)
+          <span className="inline-block w-3 h-3 rounded uwc-tile-computer-locked" />{" "}
+          Computer (locked)
         </span>
         <span className="flex items-center gap-1">
-          <span className="inline-block w-3 h-3 rounded bg-amber-300" /> Selected
+          <span className="inline-block w-3 h-3 rounded uwc-tile-selected" />{" "}
+          Selected
         </span>
         <span className="flex items-center gap-1">
-          <span className="inline-block w-3 h-3 rounded bg-green-300" /> Movable vowel
+          <span className="inline-block w-3 h-3 rounded uwc-tile-choice" />{" "}
+          Replaceable tile
         </span>
       </div>
     </div>

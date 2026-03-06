@@ -1,78 +1,78 @@
 // Tile.jsx — A single letter tile on the Letterpress board
 
-import { LETTER_VALUES } from './gameLogic.js';
+import { useEffect, useRef, useState } from "react";
+import { LETTER_VALUES } from "./gameLogic.js";
 
 export default function Tile({
-  index, letter, owner, isLocked, isSelected, selectionOrder, onClick,
-  swapMode, swapSourceSelected, isSwapSource, isSwappableVowel, isAlreadySwapped,
+  index,
+  letter,
+  owner,
+  isLocked,
+  isSelected,
+  selectionOrder,
+  onClick,
+  isChoiceTarget,
 }) {
   const pointValue = LETTER_VALUES[letter] || 1;
   const isHighValue = pointValue >= 5;
+  const [flipClass, setFlipClass] = useState("");
+  const prevOwnerRef = useRef(owner);
 
   const base =
-    'aspect-square flex items-center justify-center font-mono font-bold text-xl rounded cursor-pointer select-none transition-colors duration-150 relative';
+    "uwc-tile aspect-square flex items-center justify-center font-bold text-xl rounded cursor-pointer select-none transition-colors duration-150 relative";
 
   let color;
 
-  if (swapMode) {
-    if (isSwapSource) {
-      // Selected vowel — purple
-      color = 'bg-purple-500 text-white ring-2 ring-purple-800';
-    } else if (!swapSourceSelected && isSwappableVowel) {
-      // Phase 1: valid vowel source — green
-      color = 'bg-green-300 text-green-900 hover:bg-green-400';
-    } else if (!swapSourceSelected && isAlreadySwapped) {
-      // Phase 1: vowel already used — grayed out
-      color = 'bg-gray-200 text-gray-400 cursor-not-allowed';
-    } else if (!swapSourceSelected) {
-      // Phase 1: consonants — dimmed, not a valid source
-      if (owner === 'player' && isLocked) color = 'bg-blue-700 text-white opacity-40';
-      else if (owner === 'player') color = 'bg-blue-400 text-white opacity-40';
-      else if (owner === 'computer' && isLocked) color = 'bg-red-700 text-white opacity-40';
-      else if (owner === 'computer') color = 'bg-red-400 text-white opacity-40';
-      else color = 'bg-gray-200 text-gray-500 opacity-40';
-    } else {
-      // Phase 2: any tile is a valid destination — show normal colors
-      if (owner === 'player' && isLocked) color = 'bg-blue-700 text-white hover:brightness-125';
-      else if (owner === 'player') color = 'bg-blue-400 text-white hover:brightness-125';
-      else if (owner === 'computer' && isLocked) color = 'bg-red-700 text-white hover:brightness-125';
-      else if (owner === 'computer') color = 'bg-red-400 text-white hover:brightness-125';
-      else color = 'bg-gray-200 text-gray-800 hover:bg-gray-300';
-    }
-  } else if (isSelected) {
-    color = 'bg-amber-300 text-amber-900';
-  } else if (owner === 'player' && isLocked) {
-    color = 'bg-blue-700 text-white';
-  } else if (owner === 'player') {
-    color = 'bg-blue-400 text-white';
-  } else if (owner === 'computer' && isLocked) {
-    color = 'bg-red-700 text-white';
-  } else if (owner === 'computer') {
-    color = 'bg-red-400 text-white';
+  if (isSelected) {
+    color = "uwc-tile-selected";
+  } else if (owner === "player" && isLocked) {
+    color = "uwc-tile-player-locked";
+  } else if (owner === "player") {
+    color = "uwc-tile-player";
+  } else if (owner === "computer" && isLocked) {
+    color = "uwc-tile-computer-locked";
+  } else if (owner === "computer") {
+    color = "uwc-tile-computer";
   } else {
-    color = 'bg-gray-200 text-gray-800 hover:bg-gray-300';
+    color = "uwc-tile-neutral";
   }
+
+  useEffect(() => {
+    const prevOwner = prevOwnerRef.current;
+    if (prevOwner !== owner && (owner === "player" || owner === "computer")) {
+      const nextClass =
+        owner === "player" ? "uwc-flip-player" : "uwc-flip-computer";
+      setFlipClass(nextClass);
+      const timer = setTimeout(() => setFlipClass(""), 420);
+      prevOwnerRef.current = owner;
+      return () => clearTimeout(timer);
+    }
+    prevOwnerRef.current = owner;
+  }, [owner]);
 
   return (
     <button
-      className={`${base} ${color}`}
+      className={`${base} ${color} ${flipClass} ${isChoiceTarget ? "uwc-tile-choice" : ""}`}
       onClick={() => onClick(index)}
-      aria-label={`${letter}, ${pointValue} pts${isLocked ? ', locked' : ''}${owner !== 'none' ? `, owned by ${owner}` : ''}`}
+      aria-label={`${letter}, ${pointValue} pts${isLocked ? ", locked" : ""}${owner !== "none" ? `, owned by ${owner}` : ""}`}
     >
       {letter}
       {isSelected && (
-        <span className="absolute top-0.5 right-1 text-xs font-normal text-amber-700 leading-none">
+        <span className="absolute top-0.5 right-1 text-xs font-normal text-amber-900 leading-none">
           {selectionOrder + 1}
         </span>
       )}
       {/* Point value — bottom right, always visible */}
-      <span className={`absolute bottom-0.5 right-0.5 leading-none font-mono
-        ${isSelected
-          ? 'text-xs text-amber-600 opacity-70'
-          : isHighValue
-            ? 'text-xs font-bold opacity-90'
-            : 'text-xs opacity-40'
-        }`}>
+      <span
+        className={`absolute bottom-0.5 right-0.5 leading-none
+        ${
+          isSelected
+            ? "text-xs text-amber-800 opacity-70"
+            : isHighValue
+              ? "text-xs font-bold opacity-90"
+              : "text-xs opacity-40"
+        }`}
+      >
         {pointValue}
       </span>
     </button>

@@ -1,47 +1,65 @@
 // WordBuilder.jsx — Current word display + Submit / Clear + Vowel Swap buttons
 
 export default function WordBuilder({
-  currentWord, selectedIndices, onSubmit, onClear, message, turn, gameOver,
-  swapMode, swapsRemaining, onEnterSwap, onCancelSwap,
+  currentWord,
+  selectedIndices,
+  onSubmit,
+  onClear,
+  message,
+  turn,
+  gameOver,
+  letterChoiceMode,
+  pendingLetter,
+  letterChoices,
+  flipsToNextChoice,
+  letterOptions,
+  onEnterLetterChoice,
+  onCancelLetterChoice,
+  onSelectLetter,
 }) {
-  const isPlayerTurn = turn === 'player' && !gameOver;
+  const isPlayerTurn = turn === "player" && !gameOver;
 
   return (
-    <div className="mt-4 flex flex-col items-center gap-2">
-      {/* Word display — hidden during swap mode */}
-      {!swapMode && (
-        <div className="min-h-10 px-4 py-2 bg-gray-100 rounded text-xl font-mono tracking-widest text-gray-800 w-full max-w-xs text-center">
-          {currentWord
-            ? currentWord
-            : <span className="text-gray-400 text-base">tap tiles to build a word</span>
-          }
+    <div className="uwc-panel mt-4 flex flex-col items-center gap-2 px-4 py-4">
+      {/* Word display — hidden during letter choice mode */}
+      {!letterChoiceMode && (
+        <div className="min-h-10 px-4 py-2 rounded text-xl tracking-widest w-full max-w-xs text-center uwc-tile-neutral">
+          {currentWord ? (
+            currentWord
+          ) : (
+            <span className="text-sm uwc-score-meta">
+              tap tiles to build a word
+            </span>
+          )}
         </div>
       )}
 
       {/* Feedback message */}
       {message && (
-        <p className="text-sm text-gray-500 italic text-center">{message}</p>
+        <p className="text-sm italic text-center uwc-message">{message}</p>
       )}
 
       {/* Computer thinking indicator */}
-      {turn === 'computer' && !gameOver && (
-        <p className="text-sm text-red-500 animate-pulse">Computer is thinking…</p>
+      {turn === "computer" && !gameOver && (
+        <p className="text-sm animate-pulse uwc-score-computer">
+          Computer is thinking…
+        </p>
       )}
 
       {/* Normal play buttons */}
-      {!swapMode && (
+      {!letterChoiceMode && (
         <div className="flex gap-2">
           <button
             onClick={onClear}
             disabled={selectedIndices.length === 0 || !isPlayerTurn}
-            className="px-4 py-2 bg-gray-300 text-gray-800 rounded hover:bg-gray-400 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+            className="px-4 py-2 rounded transition-colors uwc-button-secondary disabled:opacity-40 disabled:cursor-not-allowed"
           >
             Clear
           </button>
           <button
             onClick={onSubmit}
             disabled={currentWord.length < 2 || !isPlayerTurn}
-            className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 disabled:opacity-40 disabled:cursor-not-allowed transition-colors font-semibold"
+            className="px-4 py-2 rounded transition-colors font-semibold uwc-button disabled:opacity-40 disabled:cursor-not-allowed"
           >
             Play Word
           </button>
@@ -49,25 +67,53 @@ export default function WordBuilder({
       )}
 
       {/* Vowel swap controls */}
-      {!swapMode && isPlayerTurn && swapsRemaining > 0 && (
-        <button
-          onClick={onEnterSwap}
-          className="px-3 py-1.5 text-sm bg-purple-100 text-purple-700 rounded hover:bg-purple-200 transition-colors border border-purple-300"
-        >
-          Move a Vowel ({swapsRemaining} left)
-        </button>
-      )}
-      {!swapMode && isPlayerTurn && swapsRemaining === 0 && (
-        <p className="text-xs text-gray-400">No vowel moves remaining</p>
+      {/* Letter choice controls */}
+      {!letterChoiceMode && (
+        <div className="flex flex-col items-center gap-2">
+          <button
+            onClick={onEnterLetterChoice}
+            disabled={!isPlayerTurn || letterChoices <= 0}
+            className="px-3 py-1.5 text-xs rounded transition-colors uwc-button-accent disabled:opacity-40 disabled:cursor-not-allowed"
+          >
+            Choose a Letter ({letterChoices} left)
+          </button>
+          {letterChoices < 3 ? (
+            <p className="text-xs uwc-score-meta">
+              Next choice in {flipsToNextChoice} flips
+            </p>
+          ) : (
+            <p className="text-xs uwc-score-meta">Max choices ready</p>
+          )}
+        </div>
       )}
 
-      {swapMode && (
-        <button
-          onClick={onCancelSwap}
-          className="px-4 py-2 bg-gray-300 text-gray-700 rounded hover:bg-gray-400 transition-colors"
-        >
-          Cancel Move
-        </button>
+      {letterChoiceMode && (
+        <div className="w-full flex flex-col items-center gap-3">
+          <div className="text-xs uwc-score-meta text-center">
+            {pendingLetter
+              ? `Selected: ${pendingLetter} — pick a tile to replace`
+              : "Pick a letter (most common on the left)"}
+          </div>
+          <div className="uwc-letter-grid">
+            {letterOptions.map((letter) => (
+              <button
+                key={letter}
+                onClick={() => onSelectLetter(letter)}
+                className={`uwc-letter-button ${
+                  pendingLetter === letter ? "uwc-letter-button-active" : ""
+                }`}
+              >
+                {letter}
+              </button>
+            ))}
+          </div>
+          <button
+            onClick={onCancelLetterChoice}
+            className="px-4 py-2 rounded transition-colors uwc-button-ghost"
+          >
+            Cancel Choice
+          </button>
+        </div>
       )}
     </div>
   );
