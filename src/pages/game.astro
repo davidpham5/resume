@@ -1,0 +1,15 @@
+---
+import Layout from '../layouts/Layout.astro';
+import UnitedWordsCoalitionGame from '../components/Game/UnitedWordsCoalitionGame.jsx';
+---
+
+<Layout title="David M. Pham — United Words Coalition">
+  <div class="container mx-auto px-4 py-8 max-w-sm">
+    <h1 class="text-2xl font-bold text-center mb-1 text-gray-800">United Words Coalition</h1>
+    <p class="text-center text-gray-400 text-sm mb-6">
+      Spell words to claim tiles. Surround your tiles to lock them. Highest score wins.
+      Vowels can be moved once — use your 3 moves wisely.
+    </p>
+    <UnitedWordsCoalitionGame client:load />
+  </div>
+</Layout>
